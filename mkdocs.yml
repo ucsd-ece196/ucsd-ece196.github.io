@@ -1,0 +1,33 @@
+site_name: ECE196 Documentation
+repo_url: https://github.com/curtisrlee/ece196-fa21
+repo_name: ece196-fa21
+edit_uri: ""
+nav:
+    - Home: index.md
+    - Python: python.md
+    - Raspberry Pi: rpi.md
+    - Git/Github: https://www.mrswirlyeyes.com/tutorials/introduction_to_git_github
+    - OpenCV: opencv.md
+    - IOT Intro: iot-project.md
+    - Firebase: firebase.md
+    - VueJS: web.md
+    - Bootstrap: bootstrap.md
+    - Security: secure.md
+theme:
+    name: material
+    icon:
+      repo: fontawesome/brands/github
+markdown_extensions:
+    - admonition
+    - attr_list
+    - pymdownx.emoji:
+        emoji_index: !!python/name:materialx.emoji.twemoji
+        emoji_generator: !!python/name:materialx.emoji.to_svg
+extra:
+    social:
+        - icon: fontawesome/brands/github
+          link: https://www.github.com/curtisrlee
+        - icon: fontawesome/brands/linkedin
+          link: https://www.linkedin.com/in/curtisrlee
+        - icon: fontawesome/brands/facebook
+          link: https://www.facebook.com/curtisrlee98
