@@ -1,0 +1,1282 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+    
+    
+      
+        <title>Raspberry Pi - ECE196 Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.a57b2b03.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#intro-to-raspberry-pi" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="ECE196 Documentation" class="md-header__button md-logo" aria-label="ECE196 Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ECE196 Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Raspberry Pi
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/curtisrlee/ece196-fa21" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ece196-fa21
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="ECE196 Documentation" class="md-nav__button md-logo" aria-label="ECE196 Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    ECE196 Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/curtisrlee/ece196-fa21" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ece196-fa21
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/" class="md-nav__link">
+        Python
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Raspberry Pi
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Raspberry Pi
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#slides" class="md-nav__link">
+    Slides
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-raspberry-pi" class="md-nav__link">
+    What is Raspberry Pi?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#raspberry-pi-setup" class="md-nav__link">
+    Raspberry Pi Setup
+  </a>
+  
+    <nav class="md-nav" aria-label="Raspberry Pi Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hardware-checklist" class="md-nav__link">
+    Hardware Checklist
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hardware-setup" class="md-nav__link">
+    Hardware Setup
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#os-setup" class="md-nav__link">
+    OS Setup
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pi-configuration" class="md-nav__link">
+    Pi Configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#software-setup" class="md-nav__link">
+    Software Setup
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#access-pi-from-pc" class="md-nav__link">
+    Access Pi from PC
+  </a>
+  
+    <nav class="md-nav" aria-label="Access Pi from PC">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ssh" class="md-nav__link">
+    SSH
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scp" class="md-nav__link">
+    SCP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vnc" class="md-nav__link">
+    VNC
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-hardware" class="md-nav__link">
+    Using Hardware
+  </a>
+  
+    <nav class="md-nav" aria-label="Using Hardware">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pinouts" class="md-nav__link">
+    Pinouts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#led-hello-world" class="md-nav__link">
+    LED Hello World
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rgb-led" class="md-nav__link">
+    RGB LED
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dht22-sensor" class="md-nav__link">
+    DHT22 Sensor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#buttons" class="md-nav__link">
+    Buttons
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#serialuart" class="md-nav__link">
+    Serial/UART
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#more-hardware" class="md-nav__link">
+    More Hardware
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wifi-configuration" class="md-nav__link">
+    Wifi Configuration
+  </a>
+  
+    <nav class="md-nav" aria-label="Wifi Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ucsd-protected" class="md-nav__link">
+    UCSD-PROTECTED
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#more-wifi" class="md-nav__link">
+    More WiFi
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    Links
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://www.mrswirlyeyes.com/tutorials/introduction_to_git_github" class="md-nav__link">
+        Git/Github
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../opencv/" class="md-nav__link">
+        OpenCV
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iot-project/" class="md-nav__link">
+        IOT Intro
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../firebase/" class="md-nav__link">
+        Firebase
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../web/" class="md-nav__link">
+        VueJS
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bootstrap/" class="md-nav__link">
+        Bootstrap
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../secure/" class="md-nav__link">
+        Security
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#slides" class="md-nav__link">
+    Slides
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-raspberry-pi" class="md-nav__link">
+    What is Raspberry Pi?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#raspberry-pi-setup" class="md-nav__link">
+    Raspberry Pi Setup
+  </a>
+  
+    <nav class="md-nav" aria-label="Raspberry Pi Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hardware-checklist" class="md-nav__link">
+    Hardware Checklist
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hardware-setup" class="md-nav__link">
+    Hardware Setup
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#os-setup" class="md-nav__link">
+    OS Setup
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pi-configuration" class="md-nav__link">
+    Pi Configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#software-setup" class="md-nav__link">
+    Software Setup
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#access-pi-from-pc" class="md-nav__link">
+    Access Pi from PC
+  </a>
+  
+    <nav class="md-nav" aria-label="Access Pi from PC">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ssh" class="md-nav__link">
+    SSH
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scp" class="md-nav__link">
+    SCP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vnc" class="md-nav__link">
+    VNC
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-hardware" class="md-nav__link">
+    Using Hardware
+  </a>
+  
+    <nav class="md-nav" aria-label="Using Hardware">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pinouts" class="md-nav__link">
+    Pinouts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#led-hello-world" class="md-nav__link">
+    LED Hello World
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rgb-led" class="md-nav__link">
+    RGB LED
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dht22-sensor" class="md-nav__link">
+    DHT22 Sensor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#buttons" class="md-nav__link">
+    Buttons
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#serialuart" class="md-nav__link">
+    Serial/UART
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#more-hardware" class="md-nav__link">
+    More Hardware
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wifi-configuration" class="md-nav__link">
+    Wifi Configuration
+  </a>
+  
+    <nav class="md-nav" aria-label="Wifi Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ucsd-protected" class="md-nav__link">
+    UCSD-PROTECTED
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#more-wifi" class="md-nav__link">
+    More WiFi
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    Links
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="intro-to-raspberry-pi">Intro to Raspberry Pi</h1>
+<p><em>Written by Curtis Lee, pictures by Ravi Patel</em></p>
+<div class="admonition note">
+<p class="admonition-title">Recommended Reading</p>
+<p>Please read the <a href="https://cdn.shopify.com/s/files/1/0195/1344/2404/files/QUICKSTART_09_06_2017_EDITION.pdf?4444633349731588961">Vilros Quick Start Guide</a> (included with the Raspberry Pi kit) up to section 2.5 (and skip 2.3).</p>
+<p>Then you can skip to <a href="#pi-configuration">Pi Configuration</a>.</p>
+</div>
+<h2 id="slides">Slides</h2>
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSoRq0_4oykLQq-9eKQqJ7qEyALr3dmPlo7-Wr0yri2f_C1NOXQqm9THRSnRA_cuevilfTwMNq0sx5a/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+
+<h2 id="what-is-raspberry-pi">What is Raspberry Pi?</h2>
+<div class="admonition quote">
+<p class="admonition-title">Quote</p>
+<p>The Raspberry Pi is a low cost, credit-card sized computer.</p>
+</div>
+<ul>
+<li>Raspberry Pi is a <a href="https://www.raspberrypi.org/products/">product line</a> of single-board computers aimed at hobbyists and students.</li>
+<li>Small form factor, low cost, and ease-of-use</li>
+<li>CPU is ARM based, similar to those found in smartphones.</li>
+<li>Has USB, HDMI and network connectivity like other computers. </li>
+<li>but also GPIOs like a microcontroller.</li>
+</ul>
+<p>All these characteristics means it's suitable for a wide range of embedded uses!</p>
+<h2 id="raspberry-pi-setup">Raspberry Pi Setup</h2>
+<h3 id="hardware-checklist">Hardware Checklist</h3>
+<ol>
+<li><a href="https://vilros.com/collections/raspberry-pi-kits/products/vilros-raspberry-pi-4-complete-desktop-kit-with-keyboard-and-mouse">Raspberry Pi</a></li>
+<li>5V, 2.5A Micro USB Power Supply (for Pi)</li>
+<li>MicroSD Card with NOOBS preloaded</li>
+<li>Keyboard &amp; Mouse</li>
+<li><a href="https://www.amazon.com/SunFounder-Raspberry-Display-Portable-1920x1080/dp/B07NNXH2SS">HDMI Monitor</a></li>
+<li>12V, 200 mA Power Supply (for Monitor)</li>
+<li>HDMI Cable</li>
+<li>Hardware Kit</li>
+<li><a href="https://www.adafruit.com/product/385">DHT Sensor</a></li>
+<li>LEDs, Resistors, Buttons, etc</li>
+</ol>
+<p><img alt="image" src="../img/image7.jpg" /></p>
+<h3 id="hardware-setup">Hardware Setup</h3>
+<ol>
+<li>Connect the HDMI monitor to the 12V, 200mA power supply
+  <img alt="image" src="../img/image9.jpg" /></li>
+<li>Insert the MicroSD Card into the Raspberry Pi
+  <img alt="image" src="../img/image4.jpg" /></li>
+<li>Before powering the Raspberry Pi, connect it to the HDMI monitor via the HMDI cable 
+  <img alt="image" src="../img/image8.jpg" /></li>
+<li>Connect the 5V, 2.5A power supply to the Raspberry Pi to power it on
+  <img alt="image" src="../img/image6.jpg" /></li>
+<li>To start using the keyboard, simply insert the USB dongle into the Raspberry Pi and turn on the keyboard</li>
+</ol>
+<h3 id="os-setup">OS Setup</h3>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>There are <a href="https://www.makeuseof.com/tag/raspberry-pi-operating-systems-not-linux/">many OS's</a> for the Raspberry Pi, but we'll be using is called <a href="https://www.raspberrypi.org/downloads/raspberry-pi-os/">Raspbian</a>.</p>
+<p>The Raspberry Pi kit should come with an SD card with <a href="https://www.raspberrypi.org/documentation/installation/noobs.md">NOOBS</a> preinstalled. NOOBS allows you start the Pi out-of-the-box and install Raspbian with an internet connection. </p>
+<p>If for some reason the card is empty or corrupted we can also <a href="https://www.raspberrypi.org/documentation/installation/installing-images/">manually flash Raspbian</a>.</p>
+</div>
+<ol>
+<li>Once the RPi boots up, the monitor should show a welcome message. Click Next.</li>
+<li>Raspberry Pi will request you to select the Country, Language, and Timezone. Select the appropriate setting. If you’re using the US Keyboard, make sure to check the box for US Keyboard. Click Next.</li>
+<li>The default ‘pi’ user account currently has the password ‘raspberry’. Now is a time to change the password. Once done, click Next.</li>
+<li>On the next screen, check the box if there is a black border around the desktop. Click Next.</li>
+<li>Select the WiFi network that you wish to connect with. Note: WiFi will be required for this project. Once connected, proceed to the next step.</li>
+<li>Once connected to WiFi, RPi will be requesting a software update. Click Next to update software. If there are any errors with the updates, skip this step.</li>
+<li>Once all the configuration is set up, restart the raspberry pi.</li>
+</ol>
+<h3 id="pi-configuration">Pi Configuration</h3>
+<ol>
+<li>Click on the application menu on the top left. Go to Preferences and open up Raspberry Pi Configuration.
+  <img alt="image" src="../img/image3.png" /></li>
+<li>Now if the time to change any login credentials, if desired. 
+  <img alt="image" src="../img/image2.png" /></li>
+<li>Go to Interface and enable SSH and VNC. 
+  <img alt="image" src="../img/image1.png" /></li>
+</ol>
+<h3 id="software-setup">Software Setup</h3>
+<p>Run the following commands in the Terminal app: </p>
+<ol>
+<li>
+<p>Double check for updates:</p>
+<pre><code>sudo apt update
+sudo apt upgrade -y
+</code></pre>
+<p>If all the software was already updated sucessfully in the previous step, then this should quickly report that everything is up to date. Otherwise, <strong>it could take a very long time</strong>, depending on how many packages need to be updated.</p>
+</li>
+<li>
+<p>Install library firebase-admin: </p>
+<pre><code>pip3 install firebase-admin
+</code></pre>
+</li>
+<li>
+<p>Install some libraries for the DHT22 sensor:</p>
+<pre><code>pip3 install adafruit-circuitpython-dht
+sudo apt-get install libgpiod2
+</code></pre>
+</li>
+</ol>
+<h2 id="access-pi-from-pc">Access Pi from PC</h2>
+<p>There are also various ways we can access a terminal, copy files, or even control the entire desktop from a computer connected to the same network.</p>
+<p>Technically <strong>this section is not necessary</strong>. But at this point, it may be worth investing time into figuring out, especially if switching back and forth between the two devices is cumbersome.</p>
+<h3 id="ssh">SSH</h3>
+<p>With SSH you can remotely open a terminal to the Pi from the comfort of your main computer.</p>
+<p>To find the IP address, on your Raspberry Pi run following terminal command:</p>
+<pre><code>ip addr
+</code></pre>
+<p>And look for the IP address listed under <code>wlan0</code> or <code>eth0</code>, depending on how you are connected.</p>
+<ul>
+<li>If you have Mac/Linux, <code>ssh</code> should be built-in. </li>
+<li>If you have Windows, you need to install Git for Windows. Alternatively you can <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">use PuTTY</a> intead of <code>ssh</code>.</li>
+</ul>
+<p>On your computer, use the <code>ssh</code> command followed by <code>username@ip_address</code>. </p>
+<p>For example, if the IP address is <code>192.168.0.100</code>:</p>
+<pre><code>ssh pi@192.168.0.100
+</code></pre>
+<p>Read more about <a href="https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md">using SSH</a> and <a href="https://www.raspberrypi.org/documentation/remote-access/ssh/windows.md">using PuTTY</a> on the Raspberry Pi website.</p>
+<h3 id="scp">SCP</h3>
+<p>SCP stands for "secure copy". We can use it to copy files from another device on the network securely over an SSH connection. The syntax is similar to the normal unix <code>cp</code> command. </p>
+<ul>
+<li>If you have Mac/Linux, <code>scp</code> should be built-in. </li>
+<li>If you have Windows, you need to install Git for Windows. 
+    Alternatively you can use <a href="https://winscp.net/eng/index.php">WinSCP</a> instead of <code>scp</code>.</li>
+</ul>
+<p>For example, to copy a file from your computer to the Raspberry Pi:</p>
+<pre><code>scp mycode.py pi@192.168.0.100:/home/pi/
+</code></pre>
+<p>This will copy the file <code>mycode.py</code>, from the current directory on your computer, to the "pi" user home folder on the Raspberry Pi.</p>
+<p>Read more about <a href="https://kb.iu.edu/d/agye">using SCP here</a>.</p>
+<h3 id="vnc">VNC</h3>
+<p>With VNC you can also use the desktop and control the mouse+keyboard remotely.</p>
+<p>To use VNC, <a href="https://www.realvnc.com/en/connect/download/viewer/">download VNC Viewer</a> on your computer. </p>
+<p>Read more about <a href="https://www.raspberrypi.org/documentation/remote-access/vnc/">using VNC</a> on the Raspberry Pi website.</p>
+<h2 id="using-hardware">Using Hardware</h2>
+<h3 id="pinouts">Pinouts</h3>
+<p>Refer to this pinout diagram for connections:
+<img alt="" src="../img/Raspberry-Pi-GPIO-Header-with-Photo-702x336.png" /></p>
+<p>For more details about the pins and how to use them, read <a href="https://www.lifewire.com/tour-of-the-raspberry-pi-gpio-4063016">this article</a>.</p>
+<h3 id="led-hello-world">LED Hello World</h3>
+<p>The first thing we want to try is blinking an LED. This is the circuit equivalent of "Hello World".</p>
+<p>Connect an <strong>LED and resistor</strong> in series to Pin 17:</p>
+<p><img alt="" src="../img/schematic_combined_0.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Always use a resistor to limit the current on the LED to avoid burns! <a href="http://led.linear1.org/why-do-i-need-a-resistor-with-an-led/">See why here.</a></p>
+</div>
+<p>Now in your Pi's Home directory, create a new file called <code>blink.py</code> with this code:</p>
+<pre><code>import RPi.GPIO as GPIO
+import time
+
+GPIO.setmode( GPIO.BCM  )
+GPIO.setwarnings( False )
+GPIO.setup( 17, GPIO.OUT )
+
+GPIO.output(  17, GPIO.HIGH )
+time.sleep( 1 )
+GPIO.output( 17, GPIO.LOW )
+</code></pre>
+<p>Save and run with Python in a terminal:</p>
+<pre><code>python3 blink.py
+</code></pre>
+<p>The LED should blink on for a second!</p>
+<p>Now try changing the 3rd block to this:</p>
+<pre><code>while True:
+    GPIO.output( 17, GPIO.HIGH )
+    time.sleep( 0.5 )
+    GPIO.output( 17, GPIO.LOW )
+    time.sleep( 0.5 )
+</code></pre>
+<p>The LED should blink on and off indefinitely every second!</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Press Ctrl+C in the running terminal to exit the Python script.</p>
+</div>
+<h3 id="rgb-led">RGB LED</h3>
+<p>An <strong>RGB LED</strong> is actually just 3 different color LEDs (red, green, blue) in a single package. With some combinination these colors we can also create secondary colors.</p>
+<p><img alt="" src="../img/rgb-led.png" /></p>
+<p>So to connect it to the Raspberry Pi, we can follow the same principle as before, but using 3 different pins.</p>
+<p><img alt="" src="../img/schematic_combined_1.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>We also need resistor on each of the 3 seperate color LEDS!</p>
+</div>
+<p>Now lets try blinking through some different colors:</p>
+<pre><code>import RPi.GPIO as GPIO
+import time
+
+GPIO.setmode(GPIO.BCM)
+GPIO.setwarnings(False)
+
+RED_PIN = 17
+GREEN_PIN = 27
+BLUE_PIN = 22
+
+GPIO.setup(RED_PIN, GPIO.OUT)
+GPIO.setup(GREEN_PIN, GPIO.OUT)
+GPIO.setup(BLUE_PIN, GPIO.OUT)
+
+def blink( red,green,blue ):
+    GPIO.output(RED_PIN,red)
+    GPIO.output(GREEN_PIN,green)
+    GPIO.output(BLUE_PIN,blue)
+
+    time.sleep( 1 )
+    GPIO.output(RED_PIN,GPIO.LOW)
+    GPIO.output(GREEN_PIN,GPIO.LOW)
+    GPIO.output(BLUE_PIN,GPIO.LOW)
+    time.sleep( 1 )
+
+blink( GPIO.HIGH, GPIO.LOW, GPIO.LOW )    ## Red
+blink( GPIO.HIGH, GPIO.HIGH, GPIO.LOW )   ## Yellow
+blink( GPIO.LOW, GPIO.HIGH, GPIO.LOW )    ## Green
+blink( GPIO.LOW, GPIO.HIGH, GPIO.HIGH )   ## Cyan
+blink( GPIO.LOW, GPIO.LOW, GPIO.HIGH )    ## Blue
+blink( GPIO.HIGH, GPIO.LOW, GPIO.HIGH )   ## Magenta
+blink( GPIO.HIGH, GPIO.HIGH, GPIO.HIGH )  ## White
+</code></pre>
+<h3 id="dht22-sensor">DHT22 Sensor</h3>
+<p><img alt="" src="../img/DHT22_pins.jpg" /></p>
+<p>The <a href="https://learn.adafruit.com/dht">DHT sensors</a> are humidity and temperature sensors. We are using the <strong>DHT22</strong>, but there is also a blue DHT11 sensor, which is a cheaper but less precise version.</p>
+<p>We can connect it on a breadboard with a <strong>10k resistor</strong> like this:</p>
+<p><img alt="" src="../img/schematic_combined_2.png" /></p>
+<p>First, we need to open the terminal and install some libraries:</p>
+<pre><code>pip3 install adafruit-circuitpython-dht
+sudo apt-get install libgpiod2
+</code></pre>
+<p>We also may need to reboot the Pi after installing if it doesn't work.</p>
+<p>Now if we run this code:</p>
+<pre><code>import adafruit_dht
+import board
+import time
+
+dht_pin = board.D4
+dht_sensor = adafruit_dht.DHT22(dht_pin, use_pulseio=False)
+
+temp_c = dht_sensor.temperature
+temp_f = temp_c * (9 / 5) + 32
+hum = dht_sensor.humidity
+print("Temperature =", temp_c, 'C,', temp_f, 'F')
+print("Humidity =", hum, '%')
+</code></pre>
+<p>It will read the sensor and print results. With a loop we can also make run indefinitely at a 10 sec interval like this:</p>
+<pre><code>while True:
+    temp_c = dht_sensor.temperature
+    temp_f = temp_c * (9 / 5) + 32
+    hum = dht_sensor.humidity
+    print("Temperature =", temp_c, 'C,', temp_f, 'F')
+    print("Humidity =", hum, '%')
+    time.sleep( 2 )
+</code></pre>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>We are initializing <code>dht_sensor</code> without pulseio API with <code>use_pulseio=False</code>. </p>
+<p>In case you need to use pulseio and have some error with <code>libgpio_pulsein</code>, you may have to kill the existing process using that library.</p>
+<p>Try running this terminal command: <code>kill $(pgrep libgpio)</code></p>
+</div>
+<h3 id="buttons">Buttons</h3>
+<p>To connect a button, we don't need external components as long as it's connected to an input pin with pullup enabled.</p>
+<p><img alt="" src="../img/schematic_combined_bb.png" /></p>
+<p>One way to incorporate the button in an event-based way:</p>
+<pre><code>import RPi.GPIO as GPIO
+
+GPIO.setmode(GPIO.BCM)
+GPIO.setwarnings(False)
+GPIO.setup(10, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+
+def callback_func(*args):
+    print("Button was pushed!")
+
+GPIO.add_event_detect(10, edge=GPIO.FALLING, callback=callback_func, bouncetime=200)
+
+input("press enter 2 quit\n") # block program from exiting
+</code></pre>
+<p>Things to consider:</p>
+<ul>
+<li>Since the button is wired straight to <strong>Ground</strong>, we should enable the internal <a href="https://learn.sparkfun.com/tutorials/pull-up-resistors/all"><strong>Pull Up</strong> resistor</a> and detect a <strong>Falling Edge</strong>.</li>
+<li>We need a <a href="https://www.allaboutcircuits.com/technical-articles/switch-bounce-how-to-deal-with-it/"><strong>debouncing</strong></a> time in the <strong>milliseconds</strong>.</li>
+<li>Adding an event callback means the <strong>callback function</strong> will run <strong>asynchronously</strong> from the main program execution. If there are no more code to run, we need to block execution or the entire script will just exit.</li>
+<li><code>GPIO.cleanup()</code> can be used to resolved state errors.</li>
+</ul>
+<h3 id="serialuart">Serial/UART</h3>
+<p>The simplest way to communicate with an Arduino, BT module, and many external devices is to use serial. This process is the exact same as it would be on any generic Linux computer.</p>
+<p>First, we need to find available serial ports by entering into the console:</p>
+<pre><code>ls /dev/tty*
+</code></pre>
+<p>A good trick to find the correct port USB serial devices is to run it before and after plugging it in.</p>
+<p>Usually it will be <code>/dev/ttyUSB0</code> if it's the only one plugged in.</p>
+<p>Here is an example to send a single byte from python script to the external device:</p>
+<pre><code>import serial
+
+ser = serial.Serial('/dev/ttyUSB0', 9600, timeout=1)
+user_input = input("pls enter a byte:" )
+user_input = user_input.encode('utf_8')
+ser.write(user_input)
+line = ser.readline()
+print(line.decode('utf_8'))
+ser.close()
+</code></pre>
+<p><a href="https://github.com/curtisrlee/ece196-fa21/tree/main/examples">Link to Examples from class</a></p>
+<h3 id="more-hardware">More Hardware</h3>
+<p>There are nearly endless hardware components that you can use with the Raspberry Pi, including but not limited to the items in kit. If you would like to use other hardware components, here's some things to keep in mind:</p>
+<ul>
+<li>The Pi's GPIO's are all 3.3v based, and supply limited current only. <ul>
+<li>To use 5.0v hardware, you may need a level shifter to prevent burning the pins.</li>
+<li>To use high power components like motor, you will need an external power source, the Pi cannot supply enough power.</li>
+</ul>
+</li>
+<li>To figure out how to use a new module, do research:<ul>
+<li>Check Pi tutorials, for popular components chances are that someone else has already figured it out.</li>
+<li>Check Arduino tutorials, for the same reason.</li>
+<li>Check datasheets/documentation for reference, but sometimes they can be very advanced.</li>
+</ul>
+</li>
+</ul>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<ul>
+<li>Do not plug jumper wires directly into the wall outlet.</li>
+<li>Do not plug jumper wires from the wall into the Pi.</li>
+<li>Do not plug jumper wires from the wall into the breadboard.</li>
+<li>Do not eat electronic components.</li>
+</ul>
+</div>
+<h2 id="wifi-configuration">Wifi Configuration</h2>
+<h3 id="ucsd-protected">UCSD-PROTECTED</h3>
+<p>If you want to connect to <em>UCSD-PROTECTED</em> or any of the <em>RESNET</em> networks, manual configuration is needed because they use WPA-Enterprise.</p>
+<p>You can configure the Pi to connect to these network by editing a file with the following command:</p>
+<pre><code>sudo mousepad /etc/wpa_supplicant/wpa_supplicant.conf
+</code></pre>
+<p>And putting this template into the file:</p>
+<pre><code>ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+country=US
+
+network={
+    ssid=&quot;UCSD-PROTECTED&quot;
+    scan_ssid=1
+    key_mgmt=WPA-EAP
+    eap=PEAP
+    identity=&quot;YOUR UCSD USERNAME HERE&quot;
+    password=&quot;YOUR UCSD PASSWORD HERE&quot;
+    phase1=&quot;peapver=0&quot;
+    phase2=&quot;MSCHAPV2&quot;
+    disabled=1
+}
+</code></pre>
+<ul>
+<li>Replace <code>identity</code> and <code>password</code> with your information.</li>
+</ul>
+<h3 id="more-wifi">More WiFi</h3>
+<ul>
+<li>The Process for any <em>RESNET</em> network is the same as previous section, just copy and paste another <code>network</code> block and change the <code>ssid</code> to the proper <em>RESNET</em> wifi name.</li>
+<li>Same with <em>eduroam</em>, except <em>eduroam</em> requires full UCSD email for <code>identity</code>.</li>
+</ul>
+<p>Additionally, you can add multiple <code>network</code> blocks into the configuration file. If you want to set up the Pi to automatically connect to another (standard WPA2) Wifi network (ie. at home) you can also add another block below it like this:</p>
+<pre><code>network={
+    ssid=&quot;YOUR WIFI NAME&quot;
+    psk=&quot;YOUR WIFI PASSWORD&quot;
+}
+</code></pre>
+<h2 id="links">Links</h2>
+<p><a href="https://www.mrswirlyeyes.com/tutorials/raspberry_pi_setup">Raspberry Pi Setup Tutorial from 2019</a>
+<a href="https://www.mrswirlyeyes.com/projects/intro_to_iot/lamp_code/3">Making a script run at startup</a>
+<a href="https://www.raspberrypi.com/software/">Reset the Raspberry Pi</a></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../python/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Python" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Python
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../opencv/" class="md-footer__link md-footer__link--next" aria-label="Next: OpenCV" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              OpenCV
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://www.github.com/curtisrlee" target="_blank" rel="noopener" title="www.github.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://www.linkedin.com/in/curtisrlee" target="_blank" rel="noopener" title="www.linkedin.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://www.facebook.com/curtisrlee98" target="_blank" rel="noopener" title="www.facebook.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.b1047164.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1019 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+    
+    
+      
+        <title>OpenCV - ECE196 Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.a57b2b03.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ece-196-intro-to-opencv" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="ECE196 Documentation" class="md-header__button md-logo" aria-label="ECE196 Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ECE196 Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              OpenCV
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/curtisrlee/ece196-fa21" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ece196-fa21
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="ECE196 Documentation" class="md-nav__button md-logo" aria-label="ECE196 Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    ECE196 Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/curtisrlee/ece196-fa21" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ece196-fa21
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/" class="md-nav__link">
+        Python
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rpi/" class="md-nav__link">
+        Raspberry Pi
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://www.mrswirlyeyes.com/tutorials/introduction_to_git_github" class="md-nav__link">
+        Git/Github
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          OpenCV
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        OpenCV
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    Requirements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#slides" class="md-nav__link">
+    Slides
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    Setup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operating-on-images" class="md-nav__link">
+    Operating on Images
+  </a>
+  
+    <nav class="md-nav" aria-label="Operating on Images">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#opening-images" class="md-nav__link">
+    Opening Images
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capturing-video" class="md-nav__link">
+    Capturing Video
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#drawing-on-images" class="md-nav__link">
+    Drawing on images
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#text" class="md-nav__link">
+    Text
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#facial-detection" class="md-nav__link">
+    Facial Detection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#image-processing" class="md-nav__link">
+    Image Processing
+  </a>
+  
+    <nav class="md-nav" aria-label="Image Processing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#blur" class="md-nav__link">
+    Blur
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#thresholding" class="md-nav__link">
+    Thresholding
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morpological-transformations" class="md-nav__link">
+    Morpological Transformations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contour-detection" class="md-nav__link">
+    Contour Detection
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iot-project/" class="md-nav__link">
+        IOT Intro
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../firebase/" class="md-nav__link">
+        Firebase
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../web/" class="md-nav__link">
+        VueJS
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bootstrap/" class="md-nav__link">
+        Bootstrap
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../secure/" class="md-nav__link">
+        Security
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    Requirements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#slides" class="md-nav__link">
+    Slides
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    Setup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operating-on-images" class="md-nav__link">
+    Operating on Images
+  </a>
+  
+    <nav class="md-nav" aria-label="Operating on Images">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#opening-images" class="md-nav__link">
+    Opening Images
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capturing-video" class="md-nav__link">
+    Capturing Video
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#drawing-on-images" class="md-nav__link">
+    Drawing on images
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#text" class="md-nav__link">
+    Text
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#facial-detection" class="md-nav__link">
+    Facial Detection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#image-processing" class="md-nav__link">
+    Image Processing
+  </a>
+  
+    <nav class="md-nav" aria-label="Image Processing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#blur" class="md-nav__link">
+    Blur
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#thresholding" class="md-nav__link">
+    Thresholding
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morpological-transformations" class="md-nav__link">
+    Morpological Transformations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contour-detection" class="md-nav__link">
+    Contour Detection
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="ece-196-intro-to-opencv">ECE 196 Intro to OpenCV</h1>
+<p><em>Written by Dillon Hicks</em></p>
+<div class="admonition quote">
+<p class="admonition-title">Quote</p>
+<p><strong><em>What is OpenCV?</em></strong><br />
+OpenCV is a library of programming functions mainly aimed at real-time computer vision (CV)</p>
+</div>
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li>Laptop with Anaconda installed and a webcam</li>
+<li>OR RPi with camera attached</li>
+</ul>
+<h2 id="slides">Slides</h2>
+<iframe src="https://docs.google.com/presentation/d/1mdggvESBlnIzyURRJIF40dSzkuPSuwzPU3LYPiIM3JU/preview?slide=id.p&amp;usp=embed_facebook" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+
+<h2 id="setup">Setup</h2>
+<p>Before we get started, we need to set up all of the libraries necessary for this lecture. With your conda environment activated, install the necesary dependencies by typing the below coimmands into your terminal window.</p>
+<p><strong>OpenCV</strong></p>
+<p><code>pip install opencv-contrib-python</code></p>
+<p><strong>imutils (image utility module from Adrian Rosebrock - https://www.pyimagesearch.com)</strong></p>
+<p><code>pip install imutils</code></p>
+<p><strong>NumPy (For efficient multi-dimensional python arrays)</strong></p>
+<p><code>pip install numpy</code></p>
+<p>To test these installations, create a new python script and run it with the following import statements:</p>
+<pre><code class="language-python">import cv2
+import imutils
+import numpy as np
+</code></pre>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>When installing OpenCV from <code>pip</code>, we get the default version, which doesn't have many useful add-ons such as CUDA-acceleration (Nvidia GPU acceleration). We can compile OpenCV from directly from source, but  this installation takes a very long time (hours in many cases). However, compiling from source may be preferable when GPU acceleration is available to speed up processing times. </p>
+</div>
+<h2 id="operating-on-images">Operating on Images</h2>
+<p>The first obvious step for basic computer vision functions is opening single images. There are some functions that make this very easy to do.</p>
+<h3 id="opening-images">Opening Images</h3>
+<p>You can read an image from you computer into python as a numpy array using <code>imread()</code>. We can then do any numpy operations that you could normally do on this array.</p>
+<pre><code class="language-python">#Loads an image with filename name into my_image
+
+my_image = cv2.imread(name)
+</code></pre>
+<p>We can then open this image in a separate window using <code>imshow()</code>.</p>
+<pre><code class="language-python">#Opens a new window titled &quot;Image&quot;, displaying my_image
+
+cv2.imshow(&quot;Image&quot;, my_image)
+</code></pre>
+<p>You may then notice that it is a bit tough to close this window. To close this window easily, you can set a wait key using <code>waitKey()</code>, and close OpenCV windows using <code>destroyAllWindows()</code>. If this wait key is pressed, then the next line will run and  all windows will be destroyed (closed)</p>
+<pre><code class="language-python">#If q is pressed during x milliseconds wait time, close all opencv windows
+x = 0
+if cv2.waitKey(x) &amp; 0xFF == ord('q'):
+    cv2.destroyAllWindows()
+</code></pre>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>For WSL (Windows Subsystem for Linux), you may get errors when plotting using <code>imshow()</code> as GUI apps are not currently supported unless you are on the newest version of WSL and have the proper drivers installed. It is recomended that your native OS is used for compatibility with camera hardware.</p>
+<p><a href="https://docs.microsoft.com/en-us/windows/wsl/tutorials/gui-apps">Make sure you update WSL and the prerequisite drivers</a></p>
+</div>
+<h3 id="capturing-video">Capturing Video</h3>
+<p>We can also create a video source as well for us to read videos from the onboard camera.</p>
+<p>We can first make a video object using <code>VideoCapture()</code> from which to grab frames from at every iteration of a while loops using <code>read()</code>. Combining this with <code>imshow()</code> and other flow control functions, we can display images from our camera feed. </p>
+<pre><code class="language-python">#The following recipe gets a numpy array at each iteration of the while loop
+video = cv2.VideoCapture(0)
+
+while True:
+    ret, frame = video.read()
+
+    # Display the resulting frame
+    cv2.imshow('image', frame)
+    if cv2.waitKey(1) &amp; 0xFF == ord('q'):
+        break
+
+cv2.destroyAllWindows()
+
+</code></pre>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you try to run the code above on a RPi using the RPi camera, it will not work by default. Make sure to enable the camera by following the following steps:</p>
+<ol>
+<li><a href="https://geek-university.com/raspberry-pi/enable-camera-in-raspi-config/">Enable the camera using <code>sudo-raspi-config</code></a></li>
+<li>Install picamera using <code>pip install "picamera[array]"</code> and use the picamera functions for reading pictures</li>
+</ol>
+<p><a href="https://www.pyimagesearch.com/2015/03/30/accessing-the-raspberry-pi-camera-with-opencv-and-python/">For a more detailed tutorial, use this link</a></p>
+</div>
+<h3 id="drawing-on-images">Drawing on images</h3>
+<p>In addition, you can also resize an image to more easily display it, or reduce computation time for smaller images. From Adrian Rosebrock's library imutils, we can resize an image to a width of <code>pixels</code> with</p>
+<pre><code class="language-python">pixels = 360
+imutils.resize(my_image, pixels)
+</code></pre>
+<p>In addition, we can also place shapes onto images using several built in functions. Below, we use the <code>circle()</code> and <code>rectangle()</code> functions, but many more are available in this <a href="https://opencv-tutorial.readthedocs.io/en/latest/draw/draw.html">OpenCV documentation</a></p>
+<pre><code class="language-python">#places a green circle at (100,100) with r = 25 with a thickness of 10 pixels
+cv2.circle(my_image, (100,100), 25, (0,255,0), 10)
+cv2.rectangle(my_image, (400,300), (500,400), (0,0,255), 10)
+</code></pre>
+<p><img alt="image" src="../img_cv/draw.png" /></p>
+<h3 id="text">Text</h3>
+<p>To add more information to images, we can also add text. This is fairly easy to do as we can simply get a font built into OpenCV, and <code>putText()</code> to place a given string at a location.</p>
+<pre><code class="language-python">font = cv2.FONT_HERSHEY_DUPLEX
+cv2.putText(frame, text_string, location, font, fontscale, color, thickness)
+</code></pre>
+<p>For example, for the below image, the code used was:</p>
+<pre><code class="language-python">font = cv2.FONT_HERSHEY_DUPLEX
+cv2.putText(frame, &quot;ECE 196 Rocks&quot;, (100,100), font, 1, (0,255,0), 3)
+</code></pre>
+<p><img alt="image" src="../img_cv/text.png" /></p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p><strong>Exercise 1</strong></p>
+<p>Combine all of the following functions above to open an image and do some modifications to it!</p>
+<ol>
+<li>Open an image of your choice and show it in a window that you can close, </li>
+<li>Resize the image to 900 pixels wide</li>
+<li>Draw a rectangle at the center of the image, and place a line of text above that square</li>
+</ol>
+</div>
+<h2 id="facial-detection">Facial Detection</h2>
+<p>Next up, let's go over basic <strong>Facial Detection</strong>. </p>
+<p>Facial detection is a fun task as it allows us to see if any faces are in our images. This is done using a <a href="https://en.wikipedia.org/wiki/Viola%E2%80%93Jones_object_detection_framework">Haar Cascade Classifier</a>. This works by making many small ML classifiers that are then <em>cascaded</em> together to detect small visual features, such as those in the image below, for certain objects. These features are shown below for facial detection. In this case, these Haar Cascade Classifiers are trained to detect faces, but these classifiers can detect many different types of objects. </p>
+<p><img alt="image" src="../img_cv/haar.png" /></p>
+<p>Since we aren't worrying about ML portions in this lecture, we won't go too in to detail, but OpenCV allows us to implement these algorithms without knowing anything about ML to accomplish cool tasks!</p>
+<p>First, let's look at what XMLs built in to OpenCV can be used to detect faces. </p>
+<p><a href="https://github.com/opencv/opencv/tree/master/data/haarcascades">HAAR CASCADE XMLS</a> </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>From the above Github link, you may notice that there are many different trained models for different detection tasks. You can interchange these XMLs to accomplish many tasks, including body, eye, and face detection.</p>
+</div>
+<pre><code class="language-python">faceCascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_alt2.xml')
+</code></pre>
+<p>Once we load the cascade classifier, we can then detect the faces, which are returned from the <code>detectMultiScale</code> function, from which we can get the top left corner and width and height of the bounding box around each detected object.</p>
+<pre><code class="language-python">faces = faceCascade.detectMultiScale(frame)
+for (x, y, w, h) in faces:
+    #do something
+</code></pre>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p><strong>Exercise 2</strong></p>
+<p>Now it's time to do some cooler things! </p>
+<ul>
+<li>From your video source, detect the faces in each frame and place a rectangle around each face. Test that this works by detecting your face in your video.</li>
+</ul>
+<p>Hint: use <code>cv2.rectangle</code> and use the <code>w</code>, and <code>h</code>, the width and height, respectively, to offset the rectangle from the top corner. i.e. (x+w,y+h)</p>
+<p>If you have extra time, try to use some of the other Haar classifiers to detect different objects!</p>
+</div>
+<p><img alt="image" src="../img_cv/face.png" /></p>
+<p><img alt="image" src="../img_cv/eyes.png" /></p>
+<h2 id="image-processing">Image Processing</h2>
+<p>Although facial detection is an easy task to do with OpenCV, not all tasks are as straightforward. One task that is essential to any computer vision workflow is <strong>Image Processing</strong>.</p>
+<p>We process our images for one main reason, to make them easier for our algorithms we develop to analyze. One main way we can do this is to remove <strong>Noise</strong>. Noise is essentially unwanted data in our images, and this noise can greatly affect how our algorithms perform. Thus, it is essential to reduce the amount of noise in our images. </p>
+<p><img alt="image" src="../img_cv/noise.png" /></p>
+<h3 id="blur">Blur</h3>
+<p>One important way to remove noise is <strong>Blurring</strong>. Standard intuition may tell you that blurring an image makes it worse, which to the naked eye, is true! However, the human brain is made to ignore small bits of noise in images, but computers <strong>are not</strong>. Blurring can get rid of small details that are ultimately unnecessary to the performance of our algorithms, limiting the ability of small details to "trick" our algorithms.</p>
+<p>One common blurring algorithm is the Gaussian Blur, which we will use in this lecture to "smooth" our image.</p>
+<p>For other blurring algorithms, feel free to check out <a href="https://www.pyimagesearch.com/2021/04/28/opencv-smoothing-and-blurring/">this tutorial by Adrian Rosebrock</a></p>
+<pre><code class="language-python">#applied a gaussian blur with a standard deviation of 11
+frame = cv2.GaussianBlur(frame, (11, 11), 0)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th align="center">Unblurred Image</th>
+<th align="center">Blurred Image</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><img alt="image" src="../img_cv/tennis_balls.png" /></td>
+<td align="center"><img alt="image" src="../img_cv/blurred.png" /></td>
+</tr>
+</tbody>
+</table>
+<h3 id="thresholding">Thresholding</h3>
+<p>Thresholding can be used to create a mask</p>
+<p>We can also set an upper and lower boundary for our threshold. Thus, the output mask would be 0 if it is outside these lower and upper bounds, and 1 otherwise</p>
+<pre><code class="language-python"># Tuple containing 2 lists of BGR pixel values denoting minimum and maximum example red values
+boundaries = ([17, 17, 150], [125, 125, 255])
+
+# Setting lower and upper bounds
+lower = np.array(boundaries[0], dtype = &quot;uint8&quot;)
+upper = np.array(boundaries[1], dtype = &quot;uint8&quot;)
+
+# Transforms the above boundaries into numpy arrays
+mask = cv2.inRange(frame, lower, upper)
+</code></pre>
+<h3 id="morpological-transformations">Morpological Transformations</h3>
+<p>Once we convert our images to masks, our ability to remove noise doesn't stop there, we can use <strong>Morpological Transformations</strong>, most notably, <strong>Erosions</strong> and <strong>Dilations</strong> to further remove noise in our mask. </p>
+<table>
+<thead>
+<tr>
+<th align="center">Original Image</th>
+<th align="center">Dilated Image</th>
+<th align="center">Eroded Image</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><img alt="image" src="../img_cv/j.png" /></td>
+<td align="center"><img alt="image" src="../img_cv/dilation.png" /></td>
+<td align="center"><img alt="image" src="../img_cv/erosion.png" /></td>
+</tr>
+</tbody>
+</table>
+<p>These morphological transformations work to change the images shape. They can remove noise, and further highlight useful features in our images.</p>
+<p>There are many other morphological Transformations available - <a href="https://opencv24-python-tutorials.readthedocs.io/en/latest/py_tutorials/py_imgproc/py_morphological_ops/py_morphological_ops.html">see here</a>.</p>
+<p>We can apply these transformations to our mask with the following code.</p>
+<pre><code class="language-python">#Applies an erosion, followed by a dilation with 3 iterations each (the more iterations, the stronger the transformation)
+
+mask = cv2.erode(mask, None, iterations=3)
+mask = cv2.dilate(mask, None, iterations=3)
+
+</code></pre>
+<table>
+<thead>
+<tr>
+<th align="center">Mask without Morpological Transformations</th>
+<th align="center">Mask with Morpological Transformations</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><img alt="image" src="../img_cv/maskno.png" /></td>
+<td align="center"><img alt="image" src="../img_cv/trans.png" /></td>
+</tr>
+</tbody>
+</table>
+<h3 id="contour-detection">Contour Detection</h3>
+<p>From the mask, we can get the contours of the mask, or the boundary of each masked object. </p>
+<pre><code class="language-python">contours = cv2.findContours(mask.copy(), cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
+contours = imutils.grab_contours(contours)
+
+for contour in contours: 
+    cv2.drawContours(frame, contour, -1, (0,255,0), 3)
+</code></pre>
+<p><img alt="image" src="../img_cv/contour.png" /></p>
+<p>Next, using <code>minAreaRect()</code>, we can get the minimum area rectangle that covers the contours.</p>
+<pre><code class="language-python">rect = cv2.minAreaRect(contour)
+box = cv2.boxPoints(rect)
+box = np.int0(box)
+</code></pre>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p><strong>Exercise 3</strong></p>
+<p>Take the following image and detect the tennis balls!</p>
+<p><img alt="image" src="../img_cv/tennis_balls.png" /></p>
+<ol>
+<li>Apply a blur to the image</li>
+<li>Threshold the image.</li>
+<li>Erode, then dialte the image</li>
+<li>Plot a box around each tennis ball</li>
+</ol>
+<p>Extra: Experiment more with the thresholds and try it on a video! (Ask Dillon for a tennis ball)</p>
+</div>
+<table>
+<thead>
+<tr>
+<th align="center">Original Image</th>
+<th align="center">Detected Tennis Balls</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><img alt="image" src="../img_cv/tennis_balls.png" /></td>
+<td align="center"><img alt="image" src="../img_cv/box.png" /></td>
+</tr>
+</tbody>
+</table>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../rpi/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Raspberry Pi" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Raspberry Pi
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../iot-project/" class="md-footer__link md-footer__link--next" aria-label="Next: IOT Intro" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              IOT Intro
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://www.github.com/curtisrlee" target="_blank" rel="noopener" title="www.github.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://www.linkedin.com/in/curtisrlee" target="_blank" rel="noopener" title="www.linkedin.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://www.facebook.com/curtisrlee98" target="_blank" rel="noopener" title="www.facebook.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.b1047164.min.js"></script>
+      
+    
+  </body>
+</html>

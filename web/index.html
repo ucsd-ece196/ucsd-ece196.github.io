@@ -1,0 +1,1391 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+    
+    
+      
+        <title>VueJS - ECE196 Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.a57b2b03.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#intro-to-frontend-development" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="ECE196 Documentation" class="md-header__button md-logo" aria-label="ECE196 Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ECE196 Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              VueJS
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/curtisrlee/ece196-fa21" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ece196-fa21
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="ECE196 Documentation" class="md-nav__button md-logo" aria-label="ECE196 Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    ECE196 Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/curtisrlee/ece196-fa21" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ece196-fa21
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/" class="md-nav__link">
+        Python
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rpi/" class="md-nav__link">
+        Raspberry Pi
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://www.mrswirlyeyes.com/tutorials/introduction_to_git_github" class="md-nav__link">
+        Git/Github
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../opencv/" class="md-nav__link">
+        OpenCV
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iot-project/" class="md-nav__link">
+        IOT Intro
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../firebase/" class="md-nav__link">
+        Firebase
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          VueJS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        VueJS
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#fundamentals" class="md-nav__link">
+    Fundamentals
+  </a>
+  
+    <nav class="md-nav" aria-label="Fundamentals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    Getting Started
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#serving-the-website" class="md-nav__link">
+    Serving the Website
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#frameworks" class="md-nav__link">
+    Frameworks
+  </a>
+  
+    <nav class="md-nav" aria-label="Frameworks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-are-frameworks" class="md-nav__link">
+    What are Frameworks?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#so-many-frameworks" class="md-nav__link">
+    So many Frameworks!
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#intro-to-vuejs" class="md-nav__link">
+    Intro to Vue.js
+  </a>
+  
+    <nav class="md-nav" aria-label="Intro to Vue.js">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adding-vue" class="md-nav__link">
+    Adding Vue
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#one-way-data-binding" class="md-nav__link">
+    One-Way Data Binding
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#two-way-data-binding" class="md-nav__link">
+    Two-Way Data Binding
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#directives" class="md-nav__link">
+    Directives
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connecting-to-firebase" class="md-nav__link">
+    Connecting to Firebase
+  </a>
+  
+    <nav class="md-nav" aria-label="Connecting to Firebase">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adding-firebase" class="md-nav__link">
+    Adding Firebase
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reading-data" class="md-nav__link">
+    Reading Data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#writing-data" class="md-nav__link">
+    Writing Data
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#intro-to-css" class="md-nav__link">
+    Intro to CSS
+  </a>
+  
+    <nav class="md-nav" aria-label="Intro to CSS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixing-loading-glitches" class="md-nav__link">
+    Fixing Loading Glitches
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changing-font-size" class="md-nav__link">
+    Changing Font Size
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bootstrap" class="md-nav__link">
+    Bootstrap
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hosting-on-github-pages" class="md-nav__link">
+    Hosting on Github Pages
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    Conclusion
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bootstrap/" class="md-nav__link">
+        Bootstrap
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../secure/" class="md-nav__link">
+        Security
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#fundamentals" class="md-nav__link">
+    Fundamentals
+  </a>
+  
+    <nav class="md-nav" aria-label="Fundamentals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    Getting Started
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#serving-the-website" class="md-nav__link">
+    Serving the Website
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#frameworks" class="md-nav__link">
+    Frameworks
+  </a>
+  
+    <nav class="md-nav" aria-label="Frameworks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-are-frameworks" class="md-nav__link">
+    What are Frameworks?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#so-many-frameworks" class="md-nav__link">
+    So many Frameworks!
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#intro-to-vuejs" class="md-nav__link">
+    Intro to Vue.js
+  </a>
+  
+    <nav class="md-nav" aria-label="Intro to Vue.js">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adding-vue" class="md-nav__link">
+    Adding Vue
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#one-way-data-binding" class="md-nav__link">
+    One-Way Data Binding
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#two-way-data-binding" class="md-nav__link">
+    Two-Way Data Binding
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#directives" class="md-nav__link">
+    Directives
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connecting-to-firebase" class="md-nav__link">
+    Connecting to Firebase
+  </a>
+  
+    <nav class="md-nav" aria-label="Connecting to Firebase">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adding-firebase" class="md-nav__link">
+    Adding Firebase
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reading-data" class="md-nav__link">
+    Reading Data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#writing-data" class="md-nav__link">
+    Writing Data
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#intro-to-css" class="md-nav__link">
+    Intro to CSS
+  </a>
+  
+    <nav class="md-nav" aria-label="Intro to CSS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixing-loading-glitches" class="md-nav__link">
+    Fixing Loading Glitches
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changing-font-size" class="md-nav__link">
+    Changing Font Size
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bootstrap" class="md-nav__link">
+    Bootstrap
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hosting-on-github-pages" class="md-nav__link">
+    Hosting on Github Pages
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    Conclusion
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="intro-to-frontend-development">Intro to Frontend Development</h1>
+<p><em>Written by Curtis Lee</em></p>
+<p>The modern World Wide Web is truly a world of chaos and anarchy, with competing powers rising and falling, along with their preferred way of doing things. Brought to you by your favorite web browser!</p>
+<h2 id="fundamentals">Fundamentals</h2>
+<p>The most fundamental concepts of Web Development essentially boil down to these three (3):</p>
+<ol>
+<li>
+<p><strong>HTML</strong></p>
+<ul>
+<li>The most basic building blocks of a webpage.</li>
+<li>Most atomic elements are various "tags" containing information.</li>
+<li>Tags can have attributes to assign special characteristics or functionality to them.</li>
+<li>Tags can be nested.</li>
+<li>The browser reads all these tags and builds a DOM (Document Object Model)</li>
+<li>Example:<pre><code>&lt;html&gt;
+    &lt;body&gt;
+        &lt;h1 id="title"&gt;I am a title font!&lt;/h2&gt;
+        &lt;p&gt;I am a paragraph of content!&lt;/p&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>CSS</strong></p>
+<ul>
+<li>Tells the browser how to render the website.</li>
+<li>Makes it look good!</li>
+<li>Defined by "selecting" specific HTML tags and setting styling attributes to them.</li>
+<li>Tells the browser how to render elements of the DOM.</li>
+<li>Example:<pre><code>body {
+    background-color: beige;
+    text-align: center;
+}
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>JavaScript</strong></p>
+<ul>
+<li>JavaScript is <strong>NOT Java</strong>.</li>
+<li>Makes the website come alive!</li>
+<li>Can manipulate HTML elemeents in the DOM.</li>
+<li>Pieces of software (programming) that runs in the browser.</li>
+<li>Example:<pre><code>document.getElementById("title").innerHTML = "Hello JavaScript!";
+</code></pre>
+</li>
+</ul>
+</li>
+</ol>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>For more guides and references to HTML, CSS, and JS stuff, a good resource is <a href="https://www.w3schools.com/">w3schools.com</a></p>
+</div>
+<h4 id="getting-started">Getting Started</h4>
+<p>Starting an HTML document from scratch is fairly straightforward. </p>
+<ol>
+<li>Create a new folder for your project.</li>
+<li>In the folder, create a empty text file named <code>index.html</code> and open it in VS Code.</li>
+<li>By copying and pasting the examples shown previously, adding some extra tags, we can make this:<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;My App&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;style&gt;
+        body {
+            background-color: beige;
+            text-align: center;
+        }
+    &lt;/style&gt;
+    &lt;body&gt;
+        &lt;h1 id="title"&gt;I am a title font!&lt;/h2&gt;
+        &lt;p&gt;I am a paragraph of content!&lt;/p&gt;
+    &lt;/body&gt;
+    &lt;script&gt;
+        document.getElementById("title").innerHTML = "Hello JavaScript!";
+    &lt;/script&gt;
+&lt;/html&gt;
+</code></pre>
+</li>
+</ol>
+<p>We can now open the file with a web browser to see the results.</p>
+<p>Notice:</p>
+<ul>
+<li>The background of the page is colored beige, and the text is centered on the page. This is consistent with the CSS styling we specified.</li>
+<li>The big <code>&lt;h1&gt;</code> text shows "Hello JavaScript", which is not the original text, but rather set by our JavaScript script. If we remove that JavaScript snippet from our page, this will no longer happen.</li>
+</ul>
+<p>We can also create more interesting behavior by changing the JavaScript. Try replacing the code in the <code>&lt;script&gt;</code> tag with this:</p>
+<pre><code>setTimeout(function(){ 
+    document.getElementById("title").innerHTML = "Hello JavaScript!";
+}, 1000);
+</code></pre>
+<p>And then save the file and refresh the page. Notice the text will now change after one (1) second!</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Most modern browsers have a "lazy" refresh that doesn't always reload all our changes. To actually refresh we have to perform a "hard" refresh which in Chrome can be done by holding down Shift and refreshing, or right clicking the refresh button.</p>
+</div>
+<h3 id="serving-the-website">Serving the Website</h3>
+<p>While opening the file as <code>.html</code> in the browser works for now, in later steps it will not be sufficient. We will need a proper <strong>HTTP server</strong> to serve the webpage. Luckily, we can use Python's built-in server:</p>
+<ol>
+<li>Open a terminal in the folder with the index.html file.</li>
+<li>Run <code>python -m http.server</code></li>
+<li>In the browser, go to <a href="http://localhost:8000">http://localhost:8000</a></li>
+</ol>
+<p>Breakdown of this address:</p>
+<ol>
+<li>
+<p><strong>HTTP</strong> is the <strong>protocol</strong> being used by the browser. </p>
+<ul>
+<li><strong>HTTPS</strong> is the encrypted version of HTTP.</li>
+</ul>
+</li>
+<li>
+<p><strong>localhost</strong> is the address the computer uses to refer to itself. </p>
+<ul>
+<li>Equivalent to an <strong>IP address</strong> of <strong>127.0.0.1</strong>.</li>
+<li>By default, our server is not accessible from the outside world.</li>
+</ul>
+</li>
+<li>
+<p><strong>8000</strong> specifies the <strong>port</strong> the webserver is running on.</p>
+<ul>
+<li>By default, our Python webserver runs on <strong>port 8000</strong>.</li>
+<li>By default, the HTTP protocol uses <strong>port 80</strong>.</li>
+<li>Therefore we have to explicitly specify the non-standard port.</li>
+</ul>
+</li>
+</ol>
+<p>The webpage should appear as before, but now it's served by HTTP.</p>
+<h2 id="frameworks">Frameworks</h2>
+<p>To bring order to the wild atomized world wrought by HTML, CSS, and JavaScript, various competing powers have attempted to create structure with Web Frameworks.</p>
+<h3 id="what-are-frameworks">What are Frameworks?</h3>
+<ul>
+<li>Usually open source projects, sometimes maintained by big corps (Google, Facebook, etc). </li>
+<li>Introduce a standarized way of writing patterns of code that occur frequently.</li>
+<li><strong>Most importantly: greatly simplifies code and makes our lives easier!</strong></li>
+</ul>
+<h3 id="so-many-frameworks">So many Frameworks!</h3>
+<p><img alt="webitjsframeworks.png" src="../img/webitjsframeworks.png" /></p>
+<p>The World Wide Web is a fast paced world that changes frequently, and so do frameworks. Most frameworks commonly deployed today have only been created within the past decade. Choosing between the many competing options can be a daunting task.</p>
+<p>However to make our life easier and to get our app quickly off the ground without suffering too much learning curve, we are going to use this particular combination:</p>
+<ol>
+<li><strong>Vue.js</strong> - HTML+JavaScript Framework</li>
+<li><strong>Bootstrap</strong> - CSS framework</li>
+</ol>
+<h2 id="intro-to-vuejs">Intro to Vue.js</h2>
+<p>Vue is one of latest and greatest rising stars of the Frontend Framework scene. Compared to the more popular React or Angular, Vue is relatively easy to get working off the ground, without complicated setup.</p>
+<h3 id="adding-vue">Adding Vue</h3>
+<p>To include the Vue library into our page, we can use this script tag:</p>
+<pre><code>&lt;script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"&gt;&lt;/script&gt;
+</code></pre>
+<p>Since the browser loads the DOM in order, we must place this before we write any Javascript code that uses Vue. The best place in our current page is after <code>&lt;body&gt;</code> but before <code>&lt;script&gt;</code>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If we open Developer Tools in our browser (F12 in Chrome), click the Console tab, we should now see some messages about Vue to confirm it was loaded successfully.</p>
+</div>
+<p>After that, we can create a <code>Vue</code> object called <code>vm</code> (within the <code>script</code> block) like this:</p>
+<pre><code>    var vm = new Vue({})
+</code></pre>
+<p>Each Vue instance is defined by a dictionary with various fields specifying variables, functions, and special behavior. The ones we'll be using are:</p>
+<ul>
+<li><code>el</code> - string name of id of the HTML tag to contain the app</li>
+<li><code>data</code> - dictionary of variables used</li>
+<li><code>created</code> - special function that runs when the app is created (similar to setup() in Arduino)</li>
+<li><code>methods</code>- dictionary of methods/functions used</li>
+</ul>
+<p>So, before filling those fields, our instantiation should look like this:</p>
+<pre><code>    var vm = new Vue({
+        el: "",
+        data: {},
+        created: function() {},
+        methods: {}
+    })
+</code></pre>
+<p>For our HTML we want to create a new <code>&lt;div&gt;</code> element with <code>id="app"</code> to wrap the content of our page. Then we declare <code>el: "app"</code> in our Vue object. Our code should now look like this:</p>
+<pre><code>...
+&lt;body&gt;
+    &lt;div id="app"&gt;
+        &lt;h1 id="title"&gt;I am a title font!&lt;/h2&gt;
+        &lt;p&gt;I am a paragraph of content!&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+...
+&lt;script&gt;
+    var vm = new Vue({
+        el: "#app",
+        data: {},
+        created: function() {},
+        methods: {}
+    })
+&lt;/script&gt;
+...
+</code></pre>
+<p>Note: we can remove the JavaScript code from the previous section.</p>
+<h3 id="one-way-data-binding">One-Way Data Binding</h3>
+<p>To witness the full power of Vue, we can set up what's called a data binding:</p>
+<ol>
+<li>Change the text in our <code>&lt;h1&gt;</code> to <code>{{ titleText }}</code>.</li>
+<li>Add a string <code>titleText</code> to data.</li>
+</ol>
+<p>Our code now:</p>
+<pre><code>...
+&lt;body&gt;
+    &lt;div id="app"&gt;
+        &lt;h1 id="title"&gt;{{ titleText }}&lt;/h2&gt;
+        &lt;p&gt;I am a paragraph of content!&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+...
+&lt;script&gt;
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            titleText: "Hello World from Vue!"
+        },
+        created: function() {},
+        methods: {}
+    })
+&lt;/script&gt;
+...
+</code></pre>
+<p>Now if we refresh the page we should see that Vue changes the <code>titleText</code> into what we specified!</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Another useful perk of Vue is how easy it is to debug our application with the built-in browser Console. To open the console in Chrome, we can open Developer Tools or press <code>F12</code> and click the Console tab.</p>
+<p>Our data fields are all properties of the Vue object, and since our Vue object is called <code>vm</code>, we can address <code>titleText</code> as <code>vm.titleText</code></p>
+<ol>
+<li>Try typing <code>vm.titleText</code> into the console. What does it output? is this expected?</li>
+<li>Try typing <code>vm.titleText = 'ECE 196'</code> into the console. Now look at the HTML page. What is the <code>&lt;h1&gt;</code> text now? </li>
+</ol>
+</div>
+<p>One of the most powerful advantages of Vue data binding is how values in the HTML and JavaScript portions of our webpage are seamlessly connected, in real time.</p>
+<p>If we wanted to achieve the same with pure JavaScript, it would not only   take much more time writing and debugging more code, but the complexity would also grow exponentially when we add more stuff to our webpage. </p>
+<h3 id="two-way-data-binding">Two-Way Data Binding</h3>
+<p>We just saw how to get Vue to put variables into HTML, but we also want to be able to put HTML variables into Vue. One way to do this is with two-way data binding.</p>
+<p>Before we do that, we need to create something in HTML designed to handle user input. One type of common input is the checkbox. We can add three checkboxes to the page like this:</p>
+<pre><code>&lt;label&gt;
+    &lt;input type="checkbox" v-model="color.r"&gt; Red
+&lt;/label&gt;
+&lt;label&gt;
+    &lt;input type="checkbox" v-model="color.g"&gt; Green
+&lt;/label&gt;
+&lt;label&gt;
+    &lt;input type="checkbox" v-model="color.b"&gt; Blue
+&lt;/label&gt;
+</code></pre>
+<p>Next we want to declare variables in Vue for these values to go. One way we can do this is to add a dictionary under <code>data</code> with 3 boolean values like this:</p>
+<pre><code>data: {
+    ...
+    color: {
+        r: false,
+        g: false,
+        b: false
+    }
+},
+</code></pre>
+<p>If we refresh the page, we should see our three checkboxes appear. </p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>To verify that everything works we can use the console again:</p>
+<ol>
+<li>Tick an arbitrary combination of the boxes on our page</li>
+<li>type <code>vm.color</code> in the browser console </li>
+<li>expand the <code>Observer</code> object </li>
+<li>click each color field to load the value</li>
+</ol>
+<p>Is this what we'd expect?</p>
+</div>
+<p>To make things really interesting we can reflect the values back onto our HTML page. Under the checkboxes, we can add another <code>&lt;p&gt;</code> like this:</p>
+<pre><code>&lt;p&gt;Selected Values: {{ color }}&lt;/p&gt;
+</code></pre>
+<p>When the boxes are ticked, we can see the dictionary updated automatically on our page!</p>
+<h3 id="directives">Directives</h3>
+<p>Directives are special HTML tag attributes that define behavior in Vue but are otherwise ignored by the browser.</p>
+<p>As you may have noticed in the previous section, we used the <code>v-model</code> directive to tell Vue that we want two-way data binding on our checkbox values.</p>
+<p>There are a multitude of other directives in Vue to accomplish all kinds of tasks, but we will only use a few ones here:</p>
+<ul>
+<li><code>v-model</code> - creates two way data-binding</li>
+<li><code>v-if</code> - displays an element only if the condition is true</li>
+<li><code>v-else</code> - compliment for <code>v-if</code></li>
+<li><code>v-on:change</code> or <code>@change</code> - runs a function when the element is changed</li>
+<li><code>v-on:click</code> or <code>@click</code> - runs a function when the element is clicked</li>
+</ul>
+<p>To see these in action, we can create some more HTML elements with Vue directives. Replace:</p>
+<pre><code>&lt;p&gt;Selected Values: {{ color }}&lt;/p&gt;
+</code></pre>
+<p>with this:</p>
+<pre><code>&lt;button type="button" v-on:click="selectAll(true)"&gt;Select All&lt;/button&gt;
+&lt;p v-if="color.r || color.g || color.b"&gt;Selected Values: {{ color }} &lt;/p&gt;
+&lt;p v-else&gt;No colors are selected.&lt;/p&gt;
+</code></pre>
+<p>And in our Vue object, add a method called <code>selectAll()</code> that takes a parameter <code>value</code> like this:</p>
+<pre><code>methods: {
+    selectAll: function(value) {
+        this.color.r = value;
+        this.color.g = value;
+        this.color.b = value;
+    }
+}
+</code></pre>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Since <code>color</code> is a field of <code>vm</code>, and the function runs within <code>vm</code>'s scope, we reference <code>color</code> as <code>this.color</code></p>
+</div>
+<p>Now when we refresh the page, we should see:</p>
+<ol>
+<li>Two-way data binding on the checkboxes still works.</li>
+<li>Different <code>&lt;p&gt;</code> element is shown if no checkboxes are ticked.</li>
+<li>Clicking the button will run a function that ticks all the checkboxes.</li>
+</ol>
+<h2 id="connecting-to-firebase">Connecting to Firebase</h2>
+<p>This sections assumes we already have a Firebase app set up.</p>
+<h3 id="adding-firebase">Adding Firebase</h3>
+<p>To include the Firebase Core and Realtime Database libraries on our webpage, we can add the following lines similar to including the Vue library:</p>
+<pre><code>&lt;script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-app.js"&gt;&lt;/script&gt;
+&lt;script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-database.js"&gt;&lt;/script&gt;
+</code></pre>
+<p>Now outside and before our <code>vm = new Vue()</code> object, we need to initialize our objects called <code>firebase</code> and <code>database</code>:</p>
+<pre><code>var firebaseConfig = {
+    ...
+};
+firebase.initializeApp(firebaseConfig);
+database = firebase.database()
+
+var vm = new Vue({
+    ...
+</code></pre>
+<p>Replacing <code>firebaseConfig</code> with the one given in our Firebase App dashboard.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>It's possible to put the Firebase objects within our Vue object, but for our purposes it's easier to leave them seperate.</p>
+</div>
+<h3 id="reading-data">Reading Data</h3>
+<p>To read color data from Firebase, lets first add a new method in our Vue called <code>setupColorListener()</code>. This will create a listener in the background of our web app that listens for any changes in our database entry, and runs a function every time Firebase sends us these changes.</p>
+<pre><code>setupColorListener: function() {
+    var colorDataRef = database.ref('path/to/ref');
+    colorDataRef.on('value', function(snapshot) {
+        vm.color = snapshot.val();
+    }); 
+},
+</code></pre>
+<p>But note that so far our Firebase data is structured like this:</p>
+<p><img alt="alt text" src="../img/firebase-struct.png" title="Logo Title Text 1" /></p>
+<p>Therefore, if we want the color data, our reference path should be changed to <code>'data/color'</code>, which gives us:</p>
+<pre><code>var colorDataRef = database.ref('data/color');
+</code></pre>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The callback function explicitly references <code>color</code> as <code>vm.color</code> and not <code>this.color</code>. This is because the callback is actually run within the Firebase object, which is outside the scope of <code>vm</code>.</p>
+</div>
+<p>And we want the function to be run as soon as the page loads. So it makes sense to call the function under our <code>created</code> initialization function:</p>
+<pre><code>created: function() {
+    this.setupColorListener();
+},
+</code></pre>
+<p>In Firebase Dashboard, if we now change the values within <code>color</code>, we should now see them update the checkboxes on our page, in real time!</p>
+<h3 id="writing-data">Writing Data</h3>
+<p>While we can recieve data from Firebase, we also want changes to the checkboxes to also be sent to Firebase. This can be done with the <code>v-on:change</code> directive.</p>
+<p>Start by adding a new method called <code>updateColor()</code> in our Vue's methods:</p>
+<pre><code>updateColor: function() {
+    database.ref('data/color').set(this.color);
+}
+</code></pre>
+<p>Next we want to enclose the checkboxes into a new form element with the directive like this:</p>
+<pre><code>&lt;form v-on:change="updateColor()"&gt;
+    &lt;label&gt;
+        &lt;input type="checkbox" v-model="color.r"&gt; Red
+    &lt;/label&gt;
+    &lt;label&gt;
+        &lt;input type="checkbox" v-model="color.g"&gt; Green
+    &lt;/label&gt;
+    &lt;label&gt;
+        &lt;input type="checkbox" v-model="color.b"&gt; Blue
+    &lt;/label&gt;
+&lt;/form&gt;
+</code></pre>
+<p>Similarily, we want to add an <code>v-on:click</code> directive to the button as well:</p>
+<pre><code>&lt;button type="button" v-on:click="selectAll(true); updateColor()"&gt;Select All&lt;/button&gt;
+</code></pre>
+<p>Every time Vue detects a change in the <code>&lt;form&gt;</code> containing all the checkboxes, it will run the function that submits the changed <code>color</code> dictionary.</p>
+<p>If we tick/untick any of the checkboxes, we should also be able to now see the values get updated in Firebase Dashboard as well!</p>
+<h2 id="intro-to-css">Intro to CSS</h2>
+<p>There are two main ways to fine-tune the way our HTML elements look.</p>
+<ol>
+<li>
+<p>The <code>class</code> attribute</p>
+<ul>
+<li>By assigning our element to a <code>class</code> value defined in <code>&lt;style&gt;</code>.</li>
+<li>Useful when there are many elements, or long CSS specifications.</li>
+<li>
+<p>We already have seen some of this in action. If we change our <code>&lt;style&gt;</code> block to this:</p>
+<pre><code>&lt;style&gt;
+    body {
+        background-color: lightblue;
+    }
+&lt;/style&gt;
+</code></pre>
+<p>We see that:</p>
+<ul>
+<li>The background color is changed to <code>lightblue</code></li>
+<li>Everything reverts back to being left aligned, which is the default.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>The <code>style</code> attribute</p>
+<ul>
+<li>Can also inject some CSS properties directly into the tag.</li>
+<li>For very minor finer-tuning.</li>
+<li>
+<p>For example this will center all the text inside the <code>&lt;div&gt;</code>:</p>
+<pre><code>&lt;div style="text-align: center;"&gt;
+    I am centered text.
+&lt;/div&gt;
+</code></pre>
+<p><div style="text-align: center; border: 2px dashed grey; padding: 2em;">
+    I am centered text.
+</div></p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="fixing-loading-glitches">Fixing Loading Glitches</h3>
+<p>When we refresh the page, sometimes we can still see <code>{{ }}</code> in the HTML before Vue loads. We can actually use a special Vue directive <code>v-cloak</code> along with some simple CSS to fix this.</p>
+<p>Add this to the style block:</p>
+<pre><code>[v-cloak] {
+    display: none;
+}
+</code></pre>
+<p>And also add the directive onto the main <code>&lt;div&gt;</code> of the app:</p>
+<pre><code>&lt;div id="app" v-cloak&gt;
+</code></pre>
+<p>Now the page will no longer flash those <code>{{ }}</code> before Vue loads.</p>
+<h3 id="changing-font-size">Changing Font Size</h3>
+<p>For individual elements, we can change the font size using either method.</p>
+<p>To specify font size, we use the CSS property <code>font-size</code> plus <a href="https://www.w3schools.com/cssref/css_units.asp">some kind of CSS unit</a>. </p>
+<p>One popular unit is the <code>em</code>, which is based on the default font size in that element. For example, <code>3em</code> means 3 times the font size.</p>
+<ol>
+<li>
+<p>Using <code>class</code> attribute:</p>
+<pre><code>&lt;style&gt;
+    .sensor-data {
+        font-size: 3em;
+    }
+&lt;/style&gt;
+</code></pre>
+<!-- tsk -->
+<pre><code>&lt;p class="sensor-data"&gt; 
+    25C 
+&lt;/p&gt;
+</code></pre>
+</li>
+<li>
+<p>Using <code>style</code> attribute:</p>
+<pre><code>&lt;p style="font-size: 3em"&gt; 
+    25C 
+&lt;/p&gt;
+</code></pre>
+</li>
+</ol>
+<p>Both should produce the same result:</p>
+<div style="border: 2px dashed grey; padding: 2em;">
+    <p style="margin: 0em;"> 
+        Temperature: 
+    </p >
+    <p style="font-size: 3em; margin: 0em;"> 
+        25C 
+    </p>
+</div>
+
+<h3 id="bootstrap">Bootstrap</h3>
+<p>At this point you may have noticed our website overall still looks pretty unattractive. We could write more CSS from scratch to make our website look exactly how we want, but in most cases that's a waste of time. Instead, we can use another framework for CSS called Bootstrap. </p>
+<p><a class="md-button" href="../bootstrap">See Bootstrap Section</a></p>
+<h2 id="hosting-on-github-pages">Hosting on Github Pages</h2>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Follow <a href="https://www.mrswirlyeyes.com/tutorials/introduction_to_git_github">this tutorial</a> (30min) to learn how to use Git and Github. <a href="https://pages.github.com/">Follow GitHub Pages guide here</a>. Project site is recommended, but you can also create a profile site.</p>
+</div>
+<ol>
+<li>Create a new repository on the Github website.</li>
+<li>In the repository's <strong>Settings</strong> &gt; <strong>GitHub Pages</strong> select the primary branch as <strong>Source</strong>.</li>
+<li>Copy the git ssh url.</li>
+<li>Open terminal in project folder and enter the following commands:</li>
+<li><code>git init</code></li>
+<li><code>git remote add origin &lt;git ssh url here&gt;</code></li>
+<li><code>git add .</code></li>
+<li><code>git commit -m first commit!</code></li>
+<li><code>git push</code></li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>To upload updated code, repeat steps 7-9 and replace "first commit!" with a brief description of the new changes. Also, Git may require you to set an upstream (follow instructions onscreen) on the first push.</p>
+</div>
+<p>Ensure the html page is called <code>index.html</code>. </p>
+<p>Then navigate to <code>yourusername.github.io/reponame</code> to view your website.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>The content in this guide is by no means all-inclusive. In fact, we barely scratched the surface of what these frameworks have to offer.</p>
+<p>For more features and help it's definitely worth looking at the documentation these products.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../firebase/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Firebase" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Firebase
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../bootstrap/" class="md-footer__link md-footer__link--next" aria-label="Next: Bootstrap" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Bootstrap
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://www.github.com/curtisrlee" target="_blank" rel="noopener" title="www.github.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://www.linkedin.com/in/curtisrlee" target="_blank" rel="noopener" title="www.linkedin.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://www.facebook.com/curtisrlee98" target="_blank" rel="noopener" title="www.facebook.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.b1047164.min.js"></script>
+      
+    
+  </body>
+</html>
