@@ -1,6 +1,6 @@
 site_name: ECE196 Documentation
-repo_url: https://github.com/curtisrlee/ece196-fa21
-repo_name: ece196-fa21
+repo_url: https://github.com/ucsd-ece196/ucsd-ece196.github.io
+repo_name: ucsd-ece196.github.io
 edit_uri: ""
 nav:
     - Home: index.md
@@ -13,6 +13,7 @@ nav:
     - VueJS: web.md
     - Bootstrap: bootstrap.md
     - Security: secure.md
+    - Serial: serial.md
 theme:
     name: material
     icon:
