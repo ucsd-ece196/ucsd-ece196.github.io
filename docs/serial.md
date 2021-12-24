@@ -2,10 +2,10 @@
 _Written by Curtis Lee_
 
 ## Motivation
-* "UART vs SPI vs I2C" is common interview question
 * Helps us connect multiple systems together
     * devices to microcontroller
     * microcontroller to computer
+* "UART vs SPI vs I2C" is common interview question
 
 ## Main types of Serial Communication
 * SPI
@@ -27,11 +27,66 @@ For more information on all the protocols and differences between them, check ou
 
 ### Basics
 
-For bidirectional communication, UART is usually wired up in full-duplex mode like so:
+To send data both ways, or bidirectional communication, UART is usually wired up in *full-duplex mode* like this:
+
 ![img/serial_uart_wiring.png](img/serial_uart_wiring.png)
 
+The RX (recieve) of one device is connected to the TX (tranmit) of the other, and vice versa.
+
 On the sending device, each data byte is broken up and transmitted one bit at a time, with padding to detect when each bit starts, and sometimes extra bits for additional features. The data is then read and assembled back into bytes on the recieving device.
+
 ![img/serial_uart_waveform.png](img/serial_uart_waveform.png)
+
+### Common USB-UART Adapters
+There are some common cheap module boards out there that have Serial UART pins and accept a USB connection. Some are also built-in to cheap Arduino boards.
+
+Usually they are based on one of these common chipsets. Some might require driver installation to work on some operating systems:
+
+* Official Arduino Serial Chip
+    * Built-in to most "official design" Arduino boards
+    * Should "just work" on all systems
+* FTDI FT232 Series
+    * Most universally compatible chipset, but slightly more expensive
+    * Should "just work" on all systems
+* CH340 Series
+    * If if doesn't work, install [Drivers](https://learn.sparkfun.com/tutorials/how-to-install-ch340-drivers/all)
+* PL2303 Series
+    * If if doesn't work, install [Drivers](http://www.prolific.com.tw/US/ShowProduct.aspx?p_id=225&pcid=41)
+* CP2102 Series
+    * If if doesn't work, install [Drivers](https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers) 
+
+## Checking device connection
+
+On the computer, there are some ways to check if the device is properly detected before doing anything. This is useful during troubleshooting.
+
+### Windows
+
+1. Open *Device Manager*
+2. If successful, under *Ports* there will be an entry for the device, associated with a COM number.
+
+    ![img](img/serial_device_manager.png)
+
+3. To connect to the device later, keep track of the COM number.
+
+### Mac/Linux
+
+1. Open a terminal
+2. type `ls /dev/tty*`
+3. Usually at the very end there will appear a *ttyUSB* with a number.
+4. To connect to the device later, keep track of the path to the device.
+
+!!! tip
+    In any operating system, if you're not sure which one is the correct device, or if it's even appearing up at all, you can try unplugging and replugging the USB Serial device and monitoring what changed in the listings each time.
+
+## Opening a serial window
+
+The easiest way to get started is using Arduino IDE. Under *Tools > Port* select the correct device found earlier. Usually there will only be one entry, or it will be obvious which is correct, unless you have many serial devices attached to the computer for some reason.
+
+Then open *Serial Monitor*.
+
+![img](img/serial_arduino_com_port.png)
+
+On an "empty" Arduino this probably won't do anything, so we need to upload a sketch that will help us test the connection by sending some sort of feedback.
 
 ### Baud Rates
 
@@ -39,10 +94,12 @@ To ensure both devices can communicate with each other properly, they need to ag
 
 Since each of our bits are binary 0's and 1's, we can also consider baud rate equivalent to bit rate.
 
-Some common baud rates:
+Some common baud rates include:
 
 * 9600
 * 115200
+
+The Arduino serial monitor allows us to pick from preset common baud rates.
 
 ### Encoding
 
@@ -54,37 +111,52 @@ To represent useful symbols like characters, some kind of encoding is needed. An
 
 The most universal encoding scheme for bytes is [**ASCII**](https://www.ascii-code.com/). ASCII specifies which byte values correspond to a-z and A-Z letters, 0-9 digits, common punctuations marks, and some other features.
 
+A reference for the ASCII table can be [**found here**](https://www.ascii-code.com/).
 
-## How to use UART Serial
+### Line Termination Characters
 
-### Common USB-UART Adapters
-There are some common cheap module boards out there that have Serial UART pins and accept a USB connection. Some are also built-in to cheap Arduino boards.
+These characters come from typewriter days and have special ASCII values:
 
-Usually they are based on one of these common chipsets. Some might require driver installation to work on some operating systems:
+* `\n` is new line character, this is supposed to make the cursor move down one line.
+* `\r` is carriage return character, this supposed to make the cursor jump to the start of the line.
 
-* Official Arduino Serial Chip
-    * Built-in to most "official design" Arduino boards
-    * Should "just work" on all systems
-* FTDI FT232 Series
-    * Most universlly compatible chipset, but also slightly more expensive
-    * Should "just work" on all systems
-* CH340 Series
-    * [Drivers](https://learn.sparkfun.com/tutorials/how-to-install-ch340-drivers/all)
-* PL2303 Series
-    * [Drivers](http://www.prolific.com.tw/US/ShowProduct.aspx?p_id=225&pcid=41)
-* CP2102 Series
-    * [Drivers](https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers)
-* 
+These days in most terminals, just `\n` is enough to make the cursor move to the *start of next line*, like hitting the `Enter` key into a text editor. On some systems, `\r\n` is preferred, particularly on Windows applications. 
 
-## Checking device connection
+The Arduino serial monitor also allows us to choose which line termination to use.
 
-On the computer, there are some ways to check if the device is properly detected before doing anything. This is useful during troubleshooting.
+## Example Arduino sketches
 
-### Windows
+To run these examples, set the serial monitor baud rate to the appropriate value of 9600.
 
-1. Open *Device Manager*
-2. 
+```
+void setup() {
+  Serial.begin(9600);
+}
 
-### Mac/Linux
+void loop() {
+  if (Serial.available()) {
+    char c = Serial.read(); // save incoming data into c
+    Serial.write(c); // send c right back
+  }
+}
+```
 
-ls /dev/*
+```
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  if (Serial.available()) {
+    char c = Serial.read(); // save incoming data into c
+    Serial.print("char\tdec\thex\n"); // print info
+    Serial.print(c); // print c as char
+    Serial.print('\t');
+    Serial.print(c, DEC); // print as decimal value
+    Serial.print('\t');
+    Serial.print(c, HEX); // print as hexidecimal value
+    Serial.print('\n'); // print newline (as seperator)
+  }
+}
+```
+![img](img/serial_arduino_monitor_1.png)
