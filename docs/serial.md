@@ -78,16 +78,6 @@ On the computer, there are some ways to check if the device is properly detected
 !!! tip
     In any operating system, if you're not sure which one is the correct device, or if it's even appearing up at all, you can try unplugging and replugging the USB Serial device and monitoring what changed in the listings each time.
 
-## Opening a serial window
-
-The easiest way to get started is using Arduino IDE. Under *Tools > Port* select the correct device found earlier. Usually there will only be one entry, or it will be obvious which is correct, unless you have many serial devices attached to the computer for some reason.
-
-Then open *Serial Monitor*.
-
-![img](img/serial_arduino_com_port.png)
-
-On an "empty" Arduino this probably won't do anything, so we need to upload a sketch that will help us test the connection by sending some sort of feedback.
-
 ### Baud Rates
 
 To ensure both devices can communicate with each other properly, they need to agree upon a fixed rate to send data, known as a **baud rate**. 
@@ -124,6 +114,16 @@ These days in most terminals, just `\n` is enough to make the cursor move to the
 
 The Arduino serial monitor also allows us to choose which line termination to use.
 
+## Opening a serial window
+
+The easiest way to get started is using Arduino IDE. Under *Tools > Port* select the correct device found earlier. Usually there will only be one entry, or it will be obvious which is correct, unless you have many serial devices attached to the computer for some reason.
+
+Then open *Serial Monitor*.
+
+![img](img/serial_arduino_com_port.png)
+
+On an "empty" Arduino this probably won't do anything, so we need to upload a sketch that will help us test the connection by sending some sort of feedback.
+
 ## Example Arduino sketches
 
 To run these examples, set the serial monitor baud rate to the appropriate value of 9600.
@@ -140,6 +140,8 @@ void loop() {
   }
 }
 ```
+
+This example should take whatever you enter into the terminal and echo it right back.
 
 ```
 void setup() {
@@ -159,4 +161,38 @@ void loop() {
   }
 }
 ```
+
+This example should take characters entered into the terminal and display it as different representations.
+
 ![img](img/serial_arduino_monitor_1.png)
+
+
+## More interesting Arduino sketches
+
+We can also write code to do different things based on what input was received and make a simple terminal application:
+
+```
+void setup() {
+  Serial.begin(9600);
+  pinMode(LED_BUILTIN, OUTPUT);
+}
+
+void loop() {
+  if (Serial.available()) {
+    char c = Serial.read(); // save incoming data into c
+    if (c == 'a'){
+       Serial.println("LED ON");
+       digitalWrite(LED_BUILTIN, HIGH); // turn the LED on
+    }
+    else if (c == 'x'){
+       Serial.println("LED OFF");
+       digitalWrite(LED_BUILTIN, LOW); // turn the LED off
+    }
+    else{
+      Serial.println("unknown command");
+    }
+  }
+}
+```
+
+This example should read the input, and turn on or off the Arduino bulit-in LED (wired to pin 13) if it recieved `a` or `x` respectively.
