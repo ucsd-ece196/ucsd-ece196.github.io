@@ -420,12 +420,7 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
+          <li class="md-nav__item">
   <a href="#checking-device-connection" class="md-nav__link">
     Checking device connection
   </a>
@@ -444,6 +439,11 @@
   <a href="#maclinux" class="md-nav__link">
     Mac/Linux
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -485,12 +485,39 @@
     Example Arduino sketches
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#more-interesting-arduino-sketches" class="md-nav__link">
-    More interesting Arduino sketches
+    <nav class="md-nav" aria-label="Example Arduino sketches">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#serial-echo" class="md-nav__link">
+    Serial Echo
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#byte-information" class="md-nav__link">
+    Byte Information
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#turn-onoff-led" class="md-nav__link">
+    Turn on/off LED
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decoding-numbers" class="md-nav__link">
+    Decoding numbers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -564,12 +591,7 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
+          <li class="md-nav__item">
   <a href="#checking-device-connection" class="md-nav__link">
     Checking device connection
   </a>
@@ -588,6 +610,11 @@
   <a href="#maclinux" class="md-nav__link">
     Mac/Linux
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -629,12 +656,39 @@
     Example Arduino sketches
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#more-interesting-arduino-sketches" class="md-nav__link">
-    More interesting Arduino sketches
+    <nav class="md-nav" aria-label="Example Arduino sketches">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#serial-echo" class="md-nav__link">
+    Serial Echo
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#byte-information" class="md-nav__link">
+    Byte Information
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#turn-onoff-led" class="md-nav__link">
+    Turn on/off LED
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decoding-numbers" class="md-nav__link">
+    Decoding numbers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -716,9 +770,9 @@
 </ul>
 </li>
 </ul>
-<h2 id="checking-device-connection">Checking device connection</h2>
+<h3 id="checking-device-connection">Checking device connection</h3>
 <p>On the computer, there are some ways to check if the device is properly detected before doing anything. This is useful during troubleshooting.</p>
-<h3 id="windows">Windows</h3>
+<h4 id="windows">Windows</h4>
 <ol>
 <li>Open <em>Device Manager</em></li>
 <li>
@@ -729,7 +783,7 @@
 <p>To connect to the device later, keep track of the COM number.</p>
 </li>
 </ol>
-<h3 id="maclinux">Mac/Linux</h3>
+<h4 id="maclinux">Mac/Linux</h4>
 <ol>
 <li>Open a terminal</li>
 <li>type <code>ls /dev/tty*</code></li>
@@ -770,6 +824,8 @@
 <p>On an "empty" Arduino this probably won't do anything, so we need to upload a sketch that will help us test the connection by sending some sort of feedback.</p>
 <h2 id="example-arduino-sketches">Example Arduino sketches</h2>
 <p>To run these examples, set the serial monitor baud rate to the appropriate value of 9600.</p>
+<h3 id="serial-echo">Serial Echo</h3>
+<p>This example should take whatever you enter into the terminal and echo it right back.</p>
 <pre><code>void setup() {
   Serial.begin(9600);
 }
@@ -781,7 +837,8 @@ void loop() {
   }
 }
 </code></pre>
-<p>This example should take whatever you enter into the terminal and echo it right back.</p>
+<h3 id="byte-information">Byte Information</h3>
+<p>This example should take characters entered into the terminal and display it as different representations.</p>
 <pre><code>void setup() {
   Serial.begin(9600);
 }
@@ -799,9 +856,8 @@ void loop() {
   }
 }
 </code></pre>
-<p>This example should take characters entered into the terminal and display it as different representations.</p>
 <p><img alt="img" src="../img/serial_arduino_monitor_1.png" /></p>
-<h2 id="more-interesting-arduino-sketches">More interesting Arduino sketches</h2>
+<h3 id="turn-onoff-led">Turn on/off LED</h3>
 <p>We can also write code to do different things based on what input was received and make a simple terminal application:</p>
 <pre><code>void setup() {
   Serial.begin(9600);
@@ -826,6 +882,40 @@ void loop() {
 }
 </code></pre>
 <p>This example should read the input, and turn on or off the Arduino bulit-in LED (wired to pin 13) if it recieved <code>a</code> or <code>x</code> respectively.</p>
+<h3 id="decoding-numbers">Decoding numbers</h3>
+<p>Previously we learned about ASCII encoding. When we type characters into the terminal we are actually sending ASCII encoded characters. </p>
+<p>If we want to send the Arduino numberical value by typing strings like <code>78</code> into the terminal, we aren't actually sending the byte value of <code>78</code>, but actually bytes <code>58</code> and <code>59</code> corresponding to ASCII representation of <code>7</code> and <code>8</code>. This sequence would need to be decoded to obtain a numerical <code>int</code> value in the Arduino. </p>
+<p>Luckily, Arduino provides a straightforward <code>Serial.parseInt()</code> to handle this conversion for us, although it may run a bit slow. Otherwise we would have to use C tricks to parse the input properly.</p>
+<pre><code>void setup() {
+  Serial.begin(9600);
+  pinMode(LED_BUILTIN, OUTPUT);
+}
+
+unsigned long currentTime = 0;
+unsigned long lastTime = 0;
+unsigned long interval = 100;
+bool ledState = LOW;
+
+void loop() {
+
+  currentTime = millis();
+  if (currentTime - lastTime &gt; interval){
+    lastTime = currentTime;
+    ledState = !ledState; // toggle the LED
+    digitalWrite(LED_BUILTIN, ledState);
+  }
+
+  if (Serial.available()) {
+    // use Arduino built-in function to convert the input to int
+    // note: may be slow
+    int value = Serial.parseInt(); 
+    Serial.println(value);
+    if (value &gt; 0 &amp;&amp; value &lt; 1000){
+      interval = value; // set the interval time to the entered value
+    }
+  }
+}
+</code></pre>
 
               
             </article>
