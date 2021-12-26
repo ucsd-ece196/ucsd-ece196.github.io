@@ -55,11 +55,11 @@ Usually they are based on one of these common chipsets. Some might require drive
 * CP2102 Series
     * If if doesn't work, install [Drivers](https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers) 
 
-## Checking device connection
+### Checking device connection
 
 On the computer, there are some ways to check if the device is properly detected before doing anything. This is useful during troubleshooting.
 
-### Windows
+#### Windows
 
 1. Open *Device Manager*
 2. If successful, under *Ports* there will be an entry for the device, associated with a COM number.
@@ -68,7 +68,7 @@ On the computer, there are some ways to check if the device is properly detected
 
 3. To connect to the device later, keep track of the COM number.
 
-### Mac/Linux
+#### Mac/Linux
 
 1. Open a terminal
 2. type `ls /dev/tty*`
@@ -128,6 +128,10 @@ On an "empty" Arduino this probably won't do anything, so we need to upload a sk
 
 To run these examples, set the serial monitor baud rate to the appropriate value of 9600.
 
+### Serial Echo
+
+This example should take whatever you enter into the terminal and echo it right back.
+
 ```
 void setup() {
   Serial.begin(9600);
@@ -141,7 +145,9 @@ void loop() {
 }
 ```
 
-This example should take whatever you enter into the terminal and echo it right back.
+### Byte Information
+
+This example should take characters entered into the terminal and display it as different representations.
 
 ```
 void setup() {
@@ -162,12 +168,9 @@ void loop() {
 }
 ```
 
-This example should take characters entered into the terminal and display it as different representations.
-
 ![img](img/serial_arduino_monitor_1.png)
 
-
-## More interesting Arduino sketches
+### Turn on/off LED 
 
 We can also write code to do different things based on what input was received and make a simple terminal application:
 
@@ -196,3 +199,43 @@ void loop() {
 ```
 
 This example should read the input, and turn on or off the Arduino bulit-in LED (wired to pin 13) if it recieved `a` or `x` respectively.
+
+### Decoding numbers
+
+Previously we learned about ASCII encoding. When we type characters into the terminal we are actually sending ASCII encoded characters. 
+
+If we want to send the Arduino numberical value by typing strings like `78` into the terminal, we aren't actually sending the byte value of `78`, but actually bytes `58` and `59` corresponding to ASCII representation of `7` and `8`. This sequence would need to be decoded to obtain a numerical `int` value in the Arduino. 
+
+Luckily, Arduino provides a straightforward `Serial.parseInt()` to handle this conversion for us, although it may run a bit slow. Otherwise we would have to use C tricks to parse the input properly.
+
+```
+void setup() {
+  Serial.begin(9600);
+  pinMode(LED_BUILTIN, OUTPUT);
+}
+
+unsigned long currentTime = 0;
+unsigned long lastTime = 0;
+unsigned long interval = 100;
+bool ledState = LOW;
+
+void loop() {
+
+  currentTime = millis();
+  if (currentTime - lastTime > interval){
+    lastTime = currentTime;
+    ledState = !ledState; // toggle the LED
+    digitalWrite(LED_BUILTIN, ledState);
+  }
+  
+  if (Serial.available()) {
+    // use Arduino built-in function to convert the input to int
+    // note: may be slow
+    int value = Serial.parseInt(); 
+    Serial.println(value);
+    if (value > 0 && value < 1000){
+      interval = value; // set the interval time to the entered value
+    }
+  }
+}
+```
