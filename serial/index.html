@@ -9,15 +9,15 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.3">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.2">
     
     
       
-        <title>Serial - ECE196 Documentation</title>
+        <title>Serial UART - ECE196 Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.edf004c2.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.f7951f6f.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.e6a45f82.min.css">
@@ -58,7 +58,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#intro-to-serial-communication" class="md-skip">
+        <a href="#intro-to-uart-serial-communication" class="md-skip">
           Skip to content
         </a>
       
@@ -91,7 +91,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Serial
+              Serial UART
             
           </span>
         </div>
@@ -214,141 +214,6 @@
 
   
   
-  
-    <li class="md-nav__item">
-      <a href="../python/" class="md-nav__link">
-        Python
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../rpi/" class="md-nav__link">
-        Raspberry Pi
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="https://www.mrswirlyeyes.com/tutorials/introduction_to_git_github" class="md-nav__link">
-        Git/Github
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../opencv/" class="md-nav__link">
-        OpenCV
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../iot-project/" class="md-nav__link">
-        IOT Intro
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../firebase/" class="md-nav__link">
-        Firebase
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../web/" class="md-nav__link">
-        VueJS
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../bootstrap/" class="md-nav__link">
-        Bootstrap
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../secure/" class="md-nav__link">
-        Security
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
     
   
   
@@ -361,12 +226,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Serial
+          Serial UART
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Serial
+        Serial UART
       </a>
       
         
@@ -392,8 +257,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#main-types-of-serial-communication" class="md-nav__link">
-    Main types of Serial Communication
+  <a href="#different-types-of-serial-communication" class="md-nav__link">
+    Different Types of Serial Communication
   </a>
   
 </li>
@@ -414,13 +279,39 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#baud-rates" class="md-nav__link">
+    Baud Rates
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#encoding" class="md-nav__link">
+    Encoding
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#line-termination" class="md-nav__link">
+    Line Termination
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#common-usb-uart-adapters" class="md-nav__link">
     Common USB-UART Adapters
   </a>
   
 </li>
         
-          <li class="md-nav__item">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#checking-device-connection" class="md-nav__link">
     Checking device connection
   </a>
@@ -438,32 +329,6 @@
           <li class="md-nav__item">
   <a href="#maclinux" class="md-nav__link">
     Mac/Linux
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#baud-rates" class="md-nav__link">
-    Baud Rates
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#encoding" class="md-nav__link">
-    Encoding
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#line-termination-characters" class="md-nav__link">
-    Line Termination Characters
   </a>
   
 </li>
@@ -521,10 +386,186 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#python-pyserial-examples" class="md-nav__link">
+    Python Pyserial examples
+  </a>
+  
+    <nav class="md-nav" aria-label="Python Pyserial examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#serial-echo_1" class="md-nav__link">
+    Serial Echo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#button-press" class="md-nav__link">
+    Button Press
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simulate-keyboard" class="md-nav__link">
+    Simulate Keyboard
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wireless-serial" class="md-nav__link">
+    Wireless serial
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
       
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/" class="md-nav__link">
+        Python
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rpi/" class="md-nav__link">
+        Raspberry Pi
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../opencv/" class="md-nav__link">
+        OpenCV
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iot-project/" class="md-nav__link">
+        Webdev 1 - IOT Intro
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../firebase/" class="md-nav__link">
+        Webdev 2 - Firebase
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../web/" class="md-nav__link">
+        Webdev 3 - VueJS
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bootstrap/" class="md-nav__link">
+        Webdev 4 - Bootstrap
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../secure/" class="md-nav__link">
+        Webdev 5 - Security
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://www.mrswirlyeyes.com/tutorials/introduction_to_git_github" class="md-nav__link">
+        Git/Github ↗️
+      </a>
     </li>
   
 
@@ -563,8 +604,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#main-types-of-serial-communication" class="md-nav__link">
-    Main types of Serial Communication
+  <a href="#different-types-of-serial-communication" class="md-nav__link">
+    Different Types of Serial Communication
   </a>
   
 </li>
@@ -585,13 +626,39 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#baud-rates" class="md-nav__link">
+    Baud Rates
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#encoding" class="md-nav__link">
+    Encoding
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#line-termination" class="md-nav__link">
+    Line Termination
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#common-usb-uart-adapters" class="md-nav__link">
     Common USB-UART Adapters
   </a>
   
 </li>
         
-          <li class="md-nav__item">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#checking-device-connection" class="md-nav__link">
     Checking device connection
   </a>
@@ -609,32 +676,6 @@
           <li class="md-nav__item">
   <a href="#maclinux" class="md-nav__link">
     Mac/Linux
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#baud-rates" class="md-nav__link">
-    Baud Rates
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#encoding" class="md-nav__link">
-    Encoding
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#line-termination-characters" class="md-nav__link">
-    Line Termination Characters
   </a>
   
 </li>
@@ -692,6 +733,47 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#python-pyserial-examples" class="md-nav__link">
+    Python Pyserial examples
+  </a>
+  
+    <nav class="md-nav" aria-label="Python Pyserial examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#serial-echo_1" class="md-nav__link">
+    Serial Echo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#button-press" class="md-nav__link">
+    Button Press
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simulate-keyboard" class="md-nav__link">
+    Simulate Keyboard
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wireless-serial" class="md-nav__link">
+    Wireless serial
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -705,18 +787,23 @@
               
                 
 
-<h1 id="intro-to-serial-communication">Intro to Serial Communication</h1>
+<h1 id="intro-to-uart-serial-communication">Intro to UART Serial Communication</h1>
 <p><em>Written by Curtis Lee</em></p>
 <h2 id="motivation">Motivation</h2>
+<p>In this article we will learn how UART (Universal asynchronous receiver-transmitter) serial works, and how it can help us construct projects. </p>
+<p>Though it sounds boring there some compelling reason to learn how this works:</p>
 <ul>
-<li>Helps us connect multiple systems together<ul>
+<li>Helps us connect multiple subsystems together in project:<ul>
 <li>devices to microcontroller</li>
 <li>microcontroller to computer</li>
+<li>wired and wireless connections</li>
 </ul>
 </li>
-<li>"UART vs SPI vs I2C" is common interview question</li>
+<li>Answer common questions in firmware engineering interview</li>
 </ul>
-<h2 id="main-types-of-serial-communication">Main types of Serial Communication</h2>
+<p>For ease of use we will primarily use Arduino IDE and Python in later examples.</p>
+<h2 id="different-types-of-serial-communication">Different Types of Serial Communication</h2>
+<p>UART is a type of serial communication, but not all serial communications are necessarily UART. There are some other kinds you may encounter in the Arduino ecosystem:</p>
 <ul>
 <li>SPI<ul>
 <li>Synchronous, has a clock pin</li>
@@ -734,17 +821,41 @@
 </li>
 </ul>
 <p>In embedded development, both SPI and I2C are used mainly used for sensors, modules, etc and usually already integrated into pre-made libaries for those. </p>
-<p>UART is usually what people refer to as simply "serial", and is usually the go-to for connecting microcontroller systems together or connecting microcontrollers to a computer. Because of this, <strong>in this tutorial we will focus mainly on UART</strong>.</p>
+<p>Usually, UART is usually what people refer to as simply "serial", and is usually the go-to for connecting microcontroller systems together or connecting microcontrollers to a computer. Because of this, <strong>in this tutorial we will focus mainly on UART</strong>. In real life industry, UARTs are used frequently for all kinds of random stuff.</p>
 <p>For more information on all the protocols and differences between them, check out <a href="https://www.seeedstudio.com/blog/2019/09/25/uart-vs-i2c-vs-spi-communication-protocols-and-uses/">this article</a>.</p>
 <h2 id="how-uart-serial-works">How UART Serial works</h2>
 <h3 id="basics">Basics</h3>
-<p>To send data both ways, or bidirectional communication, UART is usually wired up in <em>full-duplex mode</em> like this:</p>
+<p>To send data both ways, or bidirectional communication, UART is usually wired up like this:</p>
 <p><img alt="img/serial_uart_wiring.png" src="../img/serial_uart_wiring.png" /></p>
-<p>The RX (recieve) of one device is connected to the TX (tranmit) of the other, and vice versa.</p>
+<p>The RX (recieve) of one device is connected to the TX (tranmit) of the other, and vice versa. Using two wires allows both devices to send and receive independantly of and without interfering of other, also known as <em>full-duplex mode</em>.</p>
 <p>On the sending device, each data byte is broken up and transmitted one bit at a time, with padding to detect when each bit starts, and sometimes extra bits for additional features. The data is then read and assembled back into bytes on the recieving device.</p>
 <p><img alt="img/serial_uart_waveform.png" src="../img/serial_uart_waveform.png" /></p>
+<h3 id="baud-rates">Baud Rates</h3>
+<p>Since there is no clock signal to synchronize the ups and downs, to ensure both devices can communicate with each other properly, they need to agree upon a fixed rate to send data, known as a <strong>baud rate</strong>. </p>
+<p>Since each of our bits are binary 0's and 1's, we can also consider baud rate equivalent to bit rate.</p>
+<p>Some common baud rates include:</p>
+<ul>
+<li>9600</li>
+<li>115200</li>
+</ul>
+<p>The Arduino serial monitor allows us to pick from preset common baud rates.</p>
+<h3 id="encoding">Encoding</h3>
+<p>By default, usually UART serial handles data in <strong>bytes</strong>. </p>
+<p>Bytes are really just 8-bit binary numbers, or 256 combinations of 1's and 0's, or 0-255 in decimal values.</p>
+<p>To represent useful symbols like characters, some kind of encoding is needed. An encoding scheme maps these 0-255 binary values into symbols.</p>
+<p>The most universal encoding scheme for bytes is <a href="https://www.ascii-code.com/"><strong>ASCII</strong></a>. ASCII specifies which byte values correspond to a-z and A-Z letters, 0-9 digits, common punctuations marks, and some other features.</p>
+<p>A reference for the ASCII table can be <a href="https://www.ascii-code.com/"><strong>found here</strong></a>.</p>
+<h3 id="line-termination">Line Termination</h3>
+<p>These characters come from typewriter era and have special ASCII values:</p>
+<ul>
+<li><code>\n</code> is new line character, this is supposed to make the cursor move down one line.</li>
+<li><code>\r</code> is carriage return character, this supposed to make the cursor jump to the start of the line.</li>
+</ul>
+<p>These days in most terminals, just <code>\n</code> is enough to make the cursor move to the <em>start of next line</em>, like hitting the <code>Enter</code> key into a text editor. On some systems, <code>\r\n</code> is preferred, particularly on Windows applications. </p>
+<p>The Arduino serial monitor also allows us to choose which line termination to use.</p>
 <h3 id="common-usb-uart-adapters">Common USB-UART Adapters</h3>
-<p>There are some common cheap module boards out there that have Serial UART pins and accept a USB connection. Some are also built-in to cheap Arduino boards.</p>
+<p>There are some common cheap module boards out there that have Serial UART pins and accept a USB connection. Some are also built-in to cheap Arduino boards. </p>
+<p>These adapters allow us to connect a device with USB ports, like a computer, to some kind of embedded device or project.</p>
 <p>Usually they are based on one of these common chipsets. Some might require driver installation to work on some operating systems:</p>
 <ul>
 <li>Official Arduino Serial Chip<ul>
@@ -770,7 +881,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="checking-device-connection">Checking device connection</h3>
+<h2 id="checking-device-connection">Checking device connection</h2>
 <p>On the computer, there are some ways to check if the device is properly detected before doing anything. This is useful during troubleshooting.</p>
 <h4 id="windows">Windows</h4>
 <ol>
@@ -787,41 +898,24 @@
 <ol>
 <li>Open a terminal</li>
 <li>type <code>ls /dev/tty*</code></li>
-<li>Usually at the very end there will appear a <em>ttyUSB</em> with a number.</li>
-<li>To connect to the device later, keep track of the path to the device.</li>
+<li>
+<p>Usually at the very end there will appear a <em>ttyUSB</em> with a number.</p>
+<p><img alt="img" src="../img/serial_ls_dev_tty.png" /></p>
+</li>
+<li>
+<p>To connect to the device later, keep track of the path to the device.</p>
+</li>
 </ol>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>In any operating system, if you're not sure which one is the correct device, or if it's even appearing up at all, you can try unplugging and replugging the USB Serial device and monitoring what changed in the listings each time.</p>
 </div>
-<h3 id="baud-rates">Baud Rates</h3>
-<p>To ensure both devices can communicate with each other properly, they need to agree upon a fixed rate to send data, known as a <strong>baud rate</strong>. </p>
-<p>Since each of our bits are binary 0's and 1's, we can also consider baud rate equivalent to bit rate.</p>
-<p>Some common baud rates include:</p>
-<ul>
-<li>9600</li>
-<li>115200</li>
-</ul>
-<p>The Arduino serial monitor allows us to pick from preset common baud rates.</p>
-<h3 id="encoding">Encoding</h3>
-<p>By default, usually UART serial handles data in <strong>bytes</strong>. </p>
-<p>Bytes are really just 8-bit binary numbers, or 256 combinations of 1's and 0's, or 0-255 in decimal values.</p>
-<p>To represent useful symbols like characters, some kind of encoding is needed. An encoding scheme maps these 0-255 binary values into symbols.</p>
-<p>The most universal encoding scheme for bytes is <a href="https://www.ascii-code.com/"><strong>ASCII</strong></a>. ASCII specifies which byte values correspond to a-z and A-Z letters, 0-9 digits, common punctuations marks, and some other features.</p>
-<p>A reference for the ASCII table can be <a href="https://www.ascii-code.com/"><strong>found here</strong></a>.</p>
-<h3 id="line-termination-characters">Line Termination Characters</h3>
-<p>These characters come from typewriter days and have special ASCII values:</p>
-<ul>
-<li><code>\n</code> is new line character, this is supposed to make the cursor move down one line.</li>
-<li><code>\r</code> is carriage return character, this supposed to make the cursor jump to the start of the line.</li>
-</ul>
-<p>These days in most terminals, just <code>\n</code> is enough to make the cursor move to the <em>start of next line</em>, like hitting the <code>Enter</code> key into a text editor. On some systems, <code>\r\n</code> is preferred, particularly on Windows applications. </p>
-<p>The Arduino serial monitor also allows us to choose which line termination to use.</p>
 <h2 id="opening-a-serial-window">Opening a serial window</h2>
+<p>When a serial device is connected to the computer, a serial terminal is software that shows a window to let us see what is being recieved, as well as send data back by typing with the keyboard. Some applications may be designed to be used over terminal like this, but in most situations, this is still extremely useful for debugging and making sure that the connection works.</p>
 <p>The easiest way to get started is using Arduino IDE. Under <em>Tools &gt; Port</em> select the correct device found earlier. Usually there will only be one entry, or it will be obvious which is correct, unless you have many serial devices attached to the computer for some reason.</p>
 <p>Then open <em>Serial Monitor</em>.</p>
 <p><img alt="img" src="../img/serial_arduino_com_port.png" /></p>
-<p>On an "empty" Arduino this probably won't do anything, so we need to upload a sketch that will help us test the connection by sending some sort of feedback.</p>
+<p>On an "empty" Arduino this probably won't do anything, so first we need to upload a sketch that will help us test the connection by sending some sort of feedback.</p>
 <h2 id="example-arduino-sketches">Example Arduino sketches</h2>
 <p>To run these examples, set the serial monitor baud rate to the appropriate value of 9600.</p>
 <h3 id="serial-echo">Serial Echo</h3>
@@ -837,6 +931,7 @@ void loop() {
   }
 }
 </code></pre>
+<p>If you see some onboard LEDs on the Arduino flashing, and whatever you type into the input appear in the window, it's probably working.</p>
 <h3 id="byte-information">Byte Information</h3>
 <p>This example should take characters entered into the terminal and display it as different representations.</p>
 <pre><code>void setup() {
@@ -882,9 +977,10 @@ void loop() {
 }
 </code></pre>
 <p>This example should read the input, and turn on or off the Arduino bulit-in LED (wired to pin 13) if it recieved <code>a</code> or <code>x</code> respectively.</p>
+<p><code>a</code> and <code>x</code> are picked arbitrarily, you can replace them with whatever symbols you want and it should still work.</p>
 <h3 id="decoding-numbers">Decoding numbers</h3>
 <p>Previously we learned about ASCII encoding. When we type characters into the terminal we are actually sending ASCII encoded characters. </p>
-<p>If we want to send the Arduino numberical value by typing strings like <code>78</code> into the terminal, we aren't actually sending the byte value of <code>78</code>, but actually bytes <code>58</code> and <code>59</code> corresponding to ASCII representation of <code>7</code> and <code>8</code>. This sequence would need to be decoded to obtain a numerical <code>int</code> value in the Arduino. </p>
+<p>If we type strings like <code>78</code> into the terminal, we aren't actually sending the byte value of <code>78</code>, but actually bytes <code>58</code> and <code>59</code> corresponding to ASCII representation of <code>7</code> and <code>8</code>. This sequence would need to be decoded to obtain a numerical <code>int</code> value in the Arduino. </p>
 <p>Luckily, Arduino provides a straightforward <code>Serial.parseInt()</code> to handle this conversion for us, although it may run a bit slow. Otherwise we would have to use C tricks to parse the input properly.</p>
 <pre><code>void setup() {
   Serial.begin(9600);
@@ -916,6 +1012,112 @@ void loop() {
   }
 }
 </code></pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This example <a href="https://www.arduino.cc/en/Tutorial/BuiltInExamples/BlinkWithoutDelay">blinks the LED without using <code>delay()</code></a>. While not strictly necessary in this case, it is generally better practice to, especially if we end up handling multiple tasks at once, since <code>delay()</code> pauses the Arduino from doing anything. <a href="https://www.gammon.com.au/blink">More explanation can be found here</a>. </p>
+<p><code>delay()</code> also stops the Arduino from processing incoming serial data. However, there is a serial <em>buffer</em> that temporarily stores some incoming data, so it may be processed after the <code>delay()</code> is over. Nevertheless, it is still best practice to avoid <code>delay()</code> whenever possible to achieve faster response time and prevent the buffer from overflowing, which would result in lost data. These examples will avoid <code>delay()</code> whenever possible.</p>
+</div>
+<h2 id="python-pyserial-examples">Python Pyserial examples</h2>
+<p>For these example we need to first install <code>pyserial</code> package in python so it can open serial port.</p>
+<pre><code>python3 -m pip install pyserial
+</code></pre>
+<h3 id="serial-echo_1">Serial Echo</h3>
+<p>To get started and make sure everything works, we can replicate the behavior of the Arduino serial monitor using Python. Recall from earlier example from <a href="#serial-echo">Serial Echo</a>, the Arduino sketch reads data from serial and echos it back to the computer. With this following Python script, we can enter bytes and read the response.</p>
+<p>Note that <code>com_port</code> in this and all following examples will also need to be replaced with the address of your current device. (COM4 is just an example)</p>
+<pre><code>import serial
+import time
+
+com_port = 'COM4'
+arduino = serial.Serial(port=com_port, baudrate=9600, timeout=0.1)
+
+while True:
+    tx_data = input(&quot;Enter something: &quot;) # Taking input from user
+    arduino.write(bytes(tx_data, 'utf-8')) # need to encode utf-8 into ascii
+    rx_data = arduino.readline()
+    print(rx_data) # printing the value
+</code></pre>
+<h3 id="button-press">Button Press</h3>
+<p>To do more interesting things, we can wire a button up to pin 6 on the Arduino, read the button presses, and send something over serial when the button is pressed.</p>
+<p>This following Arduino sketch will read button presses, debounce them, and send a character <code>x</code> over serial.</p>
+<p>Note in this example we are using a timer and some extra logic to debounce the button, which is outside the scope of the guide. <a href="http://www.gammon.com.au/switches">See this page</a> to learn more about debouncing.</p>
+<pre><code>// constants won't change. They're used here to set pin numbers:
+const int buttonPin = 6;    // the number of the pushbutton pin
+
+// Variables will change:
+int buttonState;             // the current reading from the input pin
+int lastButtonState = LOW;   // the previous reading from the input pin
+
+unsigned long lastPressTime = 0;  // the last time the output pin was toggled
+unsigned long debounceDelay = 50;    // the debounce time; increase if the output flickers
+
+void setup() {
+  Serial.begin(9600);
+
+  pinMode(buttonPin, INPUT_PULLUP);
+}
+
+void loop() {
+  int reading = digitalRead(buttonPin);
+
+  if (reading != lastButtonState) {
+    unsigned long currentTime = millis();
+    if ((currentTime - lastPressTime) &gt; debounceDelay) {
+      lastPressTime = currentTime;
+      if (reading != buttonState) {
+        buttonState = reading;
+        if (buttonState == LOW) {
+          // button is pressed
+          Serial.write('x');
+        }
+      }
+    }
+  }
+
+  lastButtonState = reading;
+}
+</code></pre>
+<p>Then, this Python script here will read the incoming <code>x</code> when the button is pressed and display some feedback in the terminal.</p>
+<pre><code>import serial
+import time
+
+com_port = 'COM4'
+arduino = serial.Serial(port=com_port, baudrate=9600, timeout=0.1)
+
+while True:
+    rx_data = arduino.readline()
+    if rx_data:
+        print(rx_data) # printing the value
+        if rx_data == b'x':
+            print('Button was pressed !')
+    time.sleep(0.01) # slight delay to not hog cpu
+</code></pre>
+<h3 id="simulate-keyboard">Simulate Keyboard</h3>
+<p>To actually do something useful with the button, one thing we can do is mimic keyboard presses. The Python libaray <a href="https://pyautogui.readthedocs.io/en/latest/#">PyAutoGUI</a> lets us do things like mimic a mouse and keyboard with Python code. </p>
+<p>First we need to install the libary:</p>
+<pre><code>python3 -m pip install pyautogui
+</code></pre>
+<p>Then we can modify the Python script from above to do a <code>pyautogui.write()</code> to type out a phrase:</p>
+<pre><code>import serial
+import time
+import pyautogui
+
+arduino = serial.Serial(port='/dev/ttyUSB0', baudrate=9600, timeout=0.1)
+
+while True:
+    rx_data = arduino.readline()
+    if rx_data:
+        print(rx_data) # printing the value
+        if rx_data == b'x':
+            print('Button was pressed !')
+            pyautogui.write('Hello world!')
+    time.sleep(0.01)
+</code></pre>
+<h2 id="wireless-serial">Wireless serial</h2>
+<p>There are even several solutions out there to get a serial link over wireless. Most can be found in the form of convinient and relatively inexpensive modules:</p>
+<ul>
+<li><a href="https://www.mrswirlyeyes.com/tutorials/bluetooth_hm_10">Bluetooth Module</a></li>
+<li><a href="https://www.allaboutcircuits.com/projects/understanding-and-implementing-the-hc-12-wireless-transceiver-module/">HC-15</a></li>
+</ul>
 
               
             </article>
@@ -929,7 +1131,7 @@ void loop() {
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../secure/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Security" rel="prev">
+        <a href=".." class="md-footer__link md-footer__link--prev" aria-label="Previous: Home" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -938,11 +1140,26 @@ void loop() {
               <span class="md-footer__direction">
                 Previous
               </span>
-              Security
+              Home
             </div>
           </div>
         </a>
       
+      
+        
+        <a href="../python/" class="md-footer__link md-footer__link--next" aria-label="Next: Python" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Python
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
       
     </nav>
   
@@ -1000,7 +1217,7 @@ void loop() {
     <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.0bbba5b5.min.js"}</script>
     
     
-      <script src="../assets/javascripts/bundle.e1a181d9.min.js"></script>
+      <script src="../assets/javascripts/bundle.649a939e.min.js"></script>
       
     
   </body>
