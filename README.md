@@ -2,5 +2,5 @@
 
 Please see:
 
-* [Documentation](https://curtisrlee.github.io/ece196-fa21/)
-* [Example Codes](https://github.com/curtisrlee/ece196-fa21/tree/main/examples)
+* [Documentation](https://ucsd-ece196.github.io/)
+* [Example Codes](https://github.com/ucsd-ece196/ucsd-ece196.github.io)
