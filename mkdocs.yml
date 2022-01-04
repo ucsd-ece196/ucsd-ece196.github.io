@@ -1,10 +1,16 @@
-site_name: ECE196 Documentation
+site_name: ECE196 Class Website
 repo_url: https://github.com/curtisrlee/ece196-fa21
 repo_name: ece196-fa21
 edit_uri: ""
 nav:
     - Home: index.md
-    - Python: python.md
+    - Rapid Prototyping:
+      - Laser Cutting: lasercut.md
+    - Python: 
+      - 0. Installation and Introduction: pythoninstall.md
+      - 1. Syntax Basics: python.md
+      - 2. List, Loops and Functions: python2.md
+      - 2. More Advanced: python3.md
     - Raspberry Pi: rpi.md
     - Git/Github: https://www.mrswirlyeyes.com/tutorials/introduction_to_git_github
     - OpenCV: opencv.md
@@ -15,6 +21,9 @@ nav:
     - Security: secure.md
 theme:
     name: material
+      
+    features:
+      - navigation.expand
     icon:
       repo: fontawesome/brands/github
 markdown_extensions:
@@ -23,6 +32,11 @@ markdown_extensions:
     - pymdownx.emoji:
         emoji_index: !!python/name:materialx.emoji.twemoji
         emoji_generator: !!python/name:materialx.emoji.to_svg
+    - pymdownx.highlight:
+        anchor_linenums: true
+    - pymdownx.inlinehilite
+    - pymdownx.snippets
+    - pymdownx.superfences
 extra:
     social:
         - icon: fontawesome/brands/github
