@@ -6,7 +6,7 @@ nav:
     - Home: index.md
     - Rapid Prototyping:
       - Laser Cutting: lasercut.md
-      - 3D Printing: lasercut.md
+      - 3D Printing: 3dprint.md
     - Python: 
       - Installation and Introduction: pythoninstall.md
       - Syntax Basics: python.md
