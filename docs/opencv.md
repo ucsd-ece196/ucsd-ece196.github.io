@@ -57,6 +57,10 @@ import numpy as np
 
 The first obvious step for basic computer vision functions is opening single images. There are some functions that make this very easy to do.
 
+For this guide we will use this sample image:
+
+![lenna.png](img_cv/lenna.png)
+
 ### Opening Images
 
 You can read an image from you computer into python as a numpy array using `imread()`. We can then do any numpy operations that you could normally do on this array.
