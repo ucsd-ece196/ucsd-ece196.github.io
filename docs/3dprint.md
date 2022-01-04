@@ -44,6 +44,6 @@ On UCSD campus you may also check out these other places that offer 3D printing:
     **3. Print the piece** using ECE Makerspace or other printer. Take a picture of the completed print.
     
     ### Deliverables
-    **4. Upload **both the `.stl` and picture of completed print** to the Google form posted on Canvas
+    **4. Upload both the .stl and picture of completed print** to the Google form posted on Canvas
 
     WI22 Note: Since we are unable to print this in the first two weeks, we will print the nametag when we are able to return in the makerspace. The design is still due by the due date mentioned in class. If you have access to 3D printer outside class you may also use that to complete the assignment.
