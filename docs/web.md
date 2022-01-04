@@ -48,6 +48,9 @@ The most fundamental concepts of Web Development essentially boil down to these 
 
 #### Getting Started
 
+!!! info
+    [Click here](https://github.com/ucsd-ece196/ucsd-ece196.github.io/tree/main/examples/html) to download starter code examples for this guide.
+
 Starting an HTML document from scratch is fairly straightforward. 
 
 1. Create a new folder for your project.
@@ -80,6 +83,8 @@ Notice:
 
 * The background of the page is colored beige, and the text is centered on the page. This is consistent with the CSS styling we specified.
 * The big `<h1>` text shows "Hello JavaScript", which is not the original text, but rather set by our JavaScript script. If we remove that JavaScript snippet from our page, this will no longer happen.
+
+### Modifying Code
 
 We can also create more interesting behavior by changing the JavaScript. Try replacing the code in the `<script>` tag with this:
 
