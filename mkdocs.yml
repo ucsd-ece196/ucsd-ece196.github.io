@@ -4,16 +4,16 @@ repo_name: ucsd-ece196.github.io
 edit_uri: ""
 nav:
     - Home: index.md
+    - Serial UART: serial.md
     - Python: python.md
     - Raspberry Pi: rpi.md
-    - Git/Github: https://www.mrswirlyeyes.com/tutorials/introduction_to_git_github
     - OpenCV: opencv.md
-    - IOT Intro: iot-project.md
-    - Firebase: firebase.md
-    - VueJS: web.md
-    - Bootstrap: bootstrap.md
-    - Security: secure.md
-    - Serial: serial.md
+    - Webdev 1 - IOT Intro: iot-project.md
+    - Webdev 2 - Firebase: firebase.md
+    - Webdev 3 - VueJS: web.md
+    - Webdev 4 - Bootstrap: bootstrap.md
+    - Webdev 5 - Security: secure.md
+    - Git/Github ↗️: https://www.mrswirlyeyes.com/tutorials/introduction_to_git_github
 theme:
     name: material
     icon:

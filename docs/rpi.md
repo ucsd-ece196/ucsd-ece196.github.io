@@ -423,3 +423,8 @@ network={
 [Raspberry Pi Setup Tutorial from 2019](https://www.mrswirlyeyes.com/tutorials/raspberry_pi_setup)
 [Making a script run at startup](https://www.mrswirlyeyes.com/projects/intro_to_iot/lamp_code/3)
 [Reset the Raspberry Pi](https://www.raspberrypi.com/software/)
+
+## Example Code
+
+!!! info
+    [Click here](https://github.com/ucsd-ece196/ucsd-ece196.github.io/tree/main/examples/pi) to see full code examples for this guide.
