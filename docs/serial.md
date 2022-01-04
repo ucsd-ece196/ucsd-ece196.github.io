@@ -122,6 +122,9 @@ On the computer, there are some ways to check if the device is properly detected
 1. Open a terminal
 2. type `ls /dev/tty*`
 3. Usually at the very end there will appear a *ttyUSB* with a number.
+
+    ![img](img/serial_ls_dev_tty.png)
+
 4. To connect to the device later, keep track of the path to the device.
 
 !!! tip
@@ -264,7 +267,7 @@ void loop() {
     
     `delay()` also stops the Arduino from processing incoming serial data. However, there is a serial *buffer* that temporarily stores some incoming data, so it may be processed after the `delay()` is over. Nevertheless, it is still best practice to avoid `delay()` whenever possible to achieve faster response time and prevent the buffer from overflowing, which would result in lost data. These examples will avoid `delay()` whenever possible.
 
-## Python-Arduino examples
+## Python Pyserial examples
 
 For these example we need to first install `pyserial` package in python so it can open serial port.
 
@@ -272,13 +275,18 @@ For these example we need to first install `pyserial` package in python so it ca
 python3 -m pip install pyserial
 ```
 
-### Button shit
+### Serial Echo
+
+To get started and make sure everything works, we can replicate the behavior of the Arduino serial monitor using Python. Recall from earlier example from [Serial Echo](#serial-echo), the Arduino sketch reads data from serial and echos it back to the computer. With this following Python script, we can enter bytes and read the response.
+
+Note that `com_port` in this and all following examples will also need to be replaced with the address of your current device. (COM4 is just an example)
 
 ```
 import serial
 import time
 
-arduino = serial.Serial(port='COM4', baudrate=9600, timeout=0.1)
+com_port = 'COM4'
+arduino = serial.Serial(port=com_port, baudrate=9600, timeout=0.1)
 
 while True:
     tx_data = input("Enter something: ") # Taking input from user
@@ -287,12 +295,102 @@ while True:
     print(rx_data) # printing the value
 ```
 
+### Button Press
 
-[the debounce example](https://www.arduino.cc/en/Tutorial/BuiltInExamples/Debounce) [more information about debouncing can be found here](http://www.gammon.com.au/switches)
+To do more interesting things, we can wire a button up to pin 6 on the Arduino, read the button presses, and send something over serial when the button is pressed.
 
-[Plagarize here](https://create.arduino.cc/projecthub/ansh2919/serial-communication-between-python-and-arduino-e7cce0)
+This following Arduino sketch will read button presses, debounce them, and send a character `x` over serial.
+
+Note in this example we are using a timer and some extra logic to debounce the button, which is outside the scope of the guide. [See this page](http://www.gammon.com.au/switches) to learn more about debouncing.
+
+```
+// constants won't change. They're used here to set pin numbers:
+const int buttonPin = 6;    // the number of the pushbutton pin
+
+// Variables will change:
+int buttonState;             // the current reading from the input pin
+int lastButtonState = LOW;   // the previous reading from the input pin
+
+unsigned long lastPressTime = 0;  // the last time the output pin was toggled
+unsigned long debounceDelay = 50;    // the debounce time; increase if the output flickers
+
+void setup() {
+  Serial.begin(9600);
+  
+  pinMode(buttonPin, INPUT_PULLUP);
+}
+
+void loop() {
+  int reading = digitalRead(buttonPin);
+
+  if (reading != lastButtonState) {
+    unsigned long currentTime = millis();
+    if ((currentTime - lastPressTime) > debounceDelay) {
+      lastPressTime = currentTime;
+      if (reading != buttonState) {
+        buttonState = reading;
+        if (buttonState == LOW) {
+          // button is pressed
+          Serial.write('x');
+        }
+      }
+    }
+  }
+  
+  lastButtonState = reading;
+}
+```
+
+Then, this Python script here will read the incoming `x` when the button is pressed and display some feedback in the terminal.
+
+```
+import serial
+import time
+
+com_port = 'COM4'
+arduino = serial.Serial(port=com_port, baudrate=9600, timeout=0.1)
+
+while True:
+    rx_data = arduino.readline()
+    if rx_data:
+        print(rx_data) # printing the value
+        if rx_data == b'x':
+            print('Button was pressed !')
+    time.sleep(0.01) # slight delay to not hog cpu
+```
+
+### Simulate Keyboard
+
+To actually do something useful with the button, one thing we can do is mimic keyboard presses. The Python libaray [PyAutoGUI](https://pyautogui.readthedocs.io/en/latest/#) lets us do things like mimic a mouse and keyboard with Python code. 
+
+First we need to install the libary:
+
+```
+python3 -m pip install pyautogui
+```
+
+Then we can modify the Python script from above to do a `pyautogui.write()` to type out a phrase:
+
+```
+import serial
+import time
+import pyautogui
+
+arduino = serial.Serial(port='/dev/ttyUSB0', baudrate=9600, timeout=0.1)
+
+while True:
+    rx_data = arduino.readline()
+    if rx_data:
+        print(rx_data) # printing the value
+        if rx_data == b'x':
+            print('Button was pressed !')
+            pyautogui.write('Hello world!')
+    time.sleep(0.01)
+```
 
 ## Wireless serial
+
+There are even several solutions out there to get a serial link over wireless. Most can be found in the form of convinient and relatively inexpensive modules:
 
 * [Bluetooth Module](https://www.mrswirlyeyes.com/tutorials/bluetooth_hm_10)
 * [HC-15](https://www.allaboutcircuits.com/projects/understanding-and-implementing-the-hc-12-wireless-transceiver-module/)
