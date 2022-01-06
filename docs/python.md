@@ -1,7 +1,10 @@
 _Written by Dillon Hicks_
 
+<iframe width="2736" height="807" src="https://www.youtube.com/embed/daZHeF9bwGs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## Variables and Types
 
+<iframe width="2736" height="807" src="https://www.youtube.com/embed/9mmCRVBW820" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### Types
 
@@ -83,6 +86,7 @@ This can useful if you want to check what type your data is before you do some o
 
 ## Basic Operations
 
+<iframe width="2736" height="807" src="https://www.youtube.com/embed/aQc5DFZiyTU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### Number Operations
 
@@ -266,7 +270,7 @@ Now onto the problem...
 
 !!! question
 
-    **You have a python microcontroller that has very sensitive electronics attached and you want to ensure that your microcontroller is recieving a proper power source. **
+    **You have a python microcontroller that has very sensitive electronics attached and you want to ensure that your microcontroller is receiving a proper power source. **
 
     Your microcontroller can detect the amperage and voltage of the electricity, however, your electronics attached say that your microcontroller needs between 12 and 13 watts. As a good ECE 35 student you of course know that the wattage can be calculated with **`wattage = amperage * voltage`**. 
 
