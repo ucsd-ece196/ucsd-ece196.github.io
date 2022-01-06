@@ -30,20 +30,28 @@ On UCSD campus you may also check out these other places that offer 3D printing:
     ### Design Small Piece
     **2. Obtain an `.stl` of a small item: ** 
 
-    * **Design your own using CAD software.** Use whichever you want, here are some examples:
-        * [Onshape - Get free plan](https://www.onshape.com/en/products/free)
-        * Solidworks - Free with Student Access code from UCSD
-        * Autodesk Fusion 360
-    * Downloading premade model [online](https://thingiverse.com) is also OK if customized.
-    * Please keep it small - About 75mm^3 (3 cubic inches) or less: 
-        * Larger prints take much longer time
-        * Larger models can be scaled down in the printer software
-        * Less infill, lower resolution settings = Faster print
+    * **Recommended: Use your model from MCAD Assigment:**
+        * **Use mm (millimeter) scaling and export as `.stl`**
+        * Design your own using CAD software. Use whichever you want, here are some examples:
+            * [Onshape - Get free plan](https://www.onshape.com/en/products/free)
+            * Solidworks - Free with Student Access code from UCSD
+            * Autodesk Fusion 360
+    * Downloading a premade model [online](https://thingiverse.com) is also OK if customized.
+
+    ### Meet Size Constraints
+    **3. Please keep it small - About 75mm^3 (3 cubic inches) or less. ** 
+    
+    Larger prints take much longer time and material. If the print fails, it could be costly. 
+    
+    Tips for efficient printing:
+
+    * If your model is too large, it can be scaled down in the printer software
+    * Using less infill and lower resolution settings leads to faster print
 
     ### Print the Piece
-    **3. Print the piece** using ECE Makerspace or other printer. Take a picture of the completed print.
+    **4. Print the piece** using ECE Makerspace or other printer. Take a picture of the completed print.
     
     ### Deliverables
-    **4. Upload both the .stl and picture of completed print** to the Google form posted on Canvas
+    **5. Upload both the .stl and picture of completed print** to the assignment.
 
     WI22 Note: Since we are unable to print this in the first two weeks, we will print the nametag when we are able to return in the makerspace. The design is still due by the due date mentioned in class. If you have access to 3D printer outside class you may also use that to complete the assignment.
