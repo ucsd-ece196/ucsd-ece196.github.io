@@ -42,8 +42,6 @@ On UCSD campus you may also check out these other places that offer 3D printing:
     **3. Please keep it small - About 75mm^3 (3 cubic inches) or less. ** 
     
     Larger prints take much longer time and material. If the print fails, it could be costly. 
-    
-    Tips for efficient printing:
 
     * If your model is too large, it can be scaled down in the printer software
     * Using less infill and lower resolution settings leads to faster print
