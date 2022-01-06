@@ -1,4 +1,4 @@
-# ECE 196 Fall 2021 Course Website
+# ECE 196 WI22 Course Website
 
 ## Requirements
 
@@ -18,7 +18,7 @@ Recommended for additional tutorial items:
 ## Getting Help
 If you are an ECE196 student and have question please post on Piazza:
 
-[:fontawesome-solid-external-link-square-alt: Piazza](https://piazza.com/class/ktvwbm65luz4vm)
+[:fontawesome-solid-external-link-square-alt: Piazza WI22](https://piazza.com/class/ky0tx9squic7ha)
 
 ## TA Staff
 ### Curtis Lee

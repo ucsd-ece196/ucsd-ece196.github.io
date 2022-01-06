@@ -30,13 +30,13 @@ On UCSD campus you may also check out these other places that offer 3D printing:
     ### Design Small Piece
     **2. Obtain an `.stl` of a small item: ** 
 
-    * **Recommended: Use your model from MCAD Assigment:**
+    * **Recommended: Try using your model from MCAD Assigment:**
         * **Use mm (millimeter) scaling and export as `.stl`**
         * Design your own using CAD software. Use whichever you want, here are some examples:
-            * [Onshape - Get free plan](https://www.onshape.com/en/products/free)
-            * Solidworks - Free with Student Access code from UCSD
-            * Autodesk Fusion 360
-    * Downloading a premade model [online](https://thingiverse.com) is also OK if customized.
+            * Onshape - [Get free plan](https://www.onshape.com/en/products/free)
+            * Solidworks - [Free with student access code from UCSD](https://blink.ucsd.edu/technology/computers/software-acms/available-software/solidworks.html)
+            * Autodesk Fusion 360 - [Free for personal use](https://www.autodesk.com/products/fusion-360/personal)
+    * If your model isn't suited for 3D printing, downloading a premade model [online](https://thingiverse.com) instead is also OK.
 
     ### Meet Size Constraints
     **3. Please keep it small - About 75mm^3 (3 cubic inches) or less. ** 
@@ -45,6 +45,7 @@ On UCSD campus you may also check out these other places that offer 3D printing:
 
     * If your model is too large, it can be scaled down in the printer software
     * Using less infill and lower resolution settings leads to faster print
+    * Turn on [support material](https://all3dp.com/2/3d-printer-support-material-which-one-to-use-for-my-project) or [modify the design](https://medium.com/bravovictornovember/3d-print-overhangs-and-how-to-deal-with-them-9eed6a7bcb5d) to deal with overhang
 
     ### Print the Piece
     **4. Print the piece** using ECE Makerspace or other printer. Take a picture of the completed print.
