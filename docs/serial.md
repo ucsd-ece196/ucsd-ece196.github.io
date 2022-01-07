@@ -163,6 +163,8 @@ void loop() {
 }
 ```
 
+![img](img/serial_arduino_monitor_2.png)
+
 If you see some onboard LEDs on the Arduino flashing, and whatever you type into the input appear in the window, it's probably working.
 
 ### Byte Information
