@@ -7,11 +7,20 @@ In this article we will learn how UART (Universal asynchronous receiver-transmit
 
 Though it sounds boring there some compelling reason to learn how this works:
 
-* Helps us connect multiple subsystems together in project:
+* **Helps us connect multiple subsystems together in project:**
     * devices to microcontroller
     * microcontroller to computer
     * wired and wireless connections
 * Answer common questions in firmware engineering interview
+
+!!! idea
+    Your new project is a real life [Weasley Clock](https://harrypotter.fandom.com/wiki/Weasley_Clock#:~:text=The%20Weasley%20Clock%20was%20a,every%20member%20of%20the%20household.), which is a clock that has motor-driven arms that point at different angles, corresponding to different states.
+
+    ![magic_clock.jpg](img/serial_magic_clock_idea.jpg)
+
+    Your MVP design requires you to connect servo motors to your PC or a Raspberry Pi, neither of which has any ports to connect a servo motor. However, you recall connecting many servos to your old Arduino Uno from ECE5. You propose using your Arduino Uno solely as a motor driver unit for this project. 
+
+    If only there was a way for the computer to tell the Arduino what to do...
 
 For ease of use we will primarily use Arduino IDE and Python in later examples.
 
@@ -32,6 +41,8 @@ In embedded development, both SPI and I2C are used mainly used for sensors, modu
 
 Usually, UART is usually what people refer to as simply "serial", and is usually the go-to for connecting microcontroller systems together or connecting microcontrollers to a computer. Because of this, **in this tutorial we will focus mainly on UART**. In real life industry, UARTs are used frequently for all kinds of random stuff.
 
+Compared to other protocols, UART is most ideal for ease of use when high data rate or multiple connections are not needed.
+
 For more information on all the protocols and differences between them, check out [this article](https://www.seeedstudio.com/blog/2019/09/25/uart-vs-i2c-vs-spi-communication-protocols-and-uses/).
 
 ## How UART Serial works
@@ -47,6 +58,8 @@ The RX (recieve) of one device is connected to the TX (tranmit) of the other, an
 On the sending device, each data byte is broken up and transmitted one bit at a time, with padding to detect when each bit starts, and sometimes extra bits for additional features. The data is then read and assembled back into bytes on the recieving device.
 
 ![img/serial_uart_waveform.png](img/serial_uart_waveform.png)
+
+For more in-depth technical explanation on how it works, check out [this video](https://www.youtube.com/watch?v=sTHckUyxwp8).
 
 ### Baud Rates
 
@@ -166,6 +179,8 @@ void loop() {
   }
 }
 ```
+
+![img](img/serial_arduino_monitor_2.png)
 
 If you see some onboard LEDs on the Arduino flashing, and whatever you type into the input appear in the window, it's probably working.
 
