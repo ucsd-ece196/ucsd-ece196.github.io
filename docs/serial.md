@@ -323,6 +323,8 @@ while True:
 
 To do more interesting things, we can wire a button up to pin 6 on the Arduino, read the button presses, and send something over serial when the button is pressed.
 
+![arduino_schematic_button_bb.png](files/arduino_schematic_button_bb.png)
+
 This following Arduino sketch will read button presses, debounce them, and send a character `x` over serial.
 ```
 // constants won't change. They're used here to set pin numbers:
