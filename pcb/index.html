@@ -13,7 +13,7 @@
     
     
       
-        <title>Basics - ECE196 Class Website</title>
+        <title>PCB Design - ECE196 Class Website</title>
       
     
     
@@ -57,6 +57,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#pcb-design-guidelines" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -86,7 +91,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Basics
+              PCB Design
             
           </span>
         </div>
@@ -271,11 +276,174 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../pcb/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          PCB Design
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         PCB Design
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#workshop-slides" class="md-nav__link">
+    Workshop Slides
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tldr-steps-to-make-a-pcb" class="md-nav__link">
+    TL;DR Steps to make a PCB
+  </a>
+  
+    <nav class="md-nav" aria-label="TL;DR Steps to make a PCB">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-schematic" class="md-nav__link">
+    1. Schematic
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-pcb" class="md-nav__link">
+    2. PCB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-ordering-pcb" class="md-nav__link">
+    3. Ordering PCB
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kicad-shortcuts" class="md-nav__link">
+    KiCad Shortcuts
+  </a>
+  
+    <nav class="md-nav" aria-label="KiCad Shortcuts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#schematic-editor" class="md-nav__link">
+    Schematic Editor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pcb-editor" class="md-nav__link">
+    PCB Editor
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-kicad-components" class="md-nav__link">
+    Common KiCad Components
+  </a>
+  
+    <nav class="md-nav" aria-label="Common KiCad Components">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#schematic-components" class="md-nav__link">
+    Schematic Components
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#helpful-tips" class="md-nav__link">
+    Helpful Tips
+  </a>
+  
+    <nav class="md-nav" aria-label="Helpful Tips">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-make-traces-as-thick-as-possible" class="md-nav__link">
+    1. Make Traces As Thick As Possible
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-use-a-gnd-or-v-copper-pour" class="md-nav__link">
+    2. Use a GND or V+ Copper Pour
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-add-plenty-of-silkscreen" class="md-nav__link">
+    3. Add Plenty Of Silkscreen
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#homework-check-slidesgradescope-for-due-date" class="md-nav__link">
+    Homework (Check Slides/Gradescope for Due Date)
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -527,15 +695,352 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#workshop-slides" class="md-nav__link">
+    Workshop Slides
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tldr-steps-to-make-a-pcb" class="md-nav__link">
+    TL;DR Steps to make a PCB
+  </a>
+  
+    <nav class="md-nav" aria-label="TL;DR Steps to make a PCB">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-schematic" class="md-nav__link">
+    1. Schematic
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-pcb" class="md-nav__link">
+    2. PCB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-ordering-pcb" class="md-nav__link">
+    3. Ordering PCB
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kicad-shortcuts" class="md-nav__link">
+    KiCad Shortcuts
+  </a>
+  
+    <nav class="md-nav" aria-label="KiCad Shortcuts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#schematic-editor" class="md-nav__link">
+    Schematic Editor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pcb-editor" class="md-nav__link">
+    PCB Editor
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-kicad-components" class="md-nav__link">
+    Common KiCad Components
+  </a>
+  
+    <nav class="md-nav" aria-label="Common KiCad Components">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#schematic-components" class="md-nav__link">
+    Schematic Components
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#helpful-tips" class="md-nav__link">
+    Helpful Tips
+  </a>
+  
+    <nav class="md-nav" aria-label="Helpful Tips">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-make-traces-as-thick-as-possible" class="md-nav__link">
+    1. Make Traces As Thick As Possible
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-use-a-gnd-or-v-copper-pour" class="md-nav__link">
+    2. Use a GND or V+ Copper Pour
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-add-plenty-of-silkscreen" class="md-nav__link">
+    3. Add Plenty Of Silkscreen
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#homework-check-slidesgradescope-for-due-date" class="md-nav__link">
+    Homework (Check Slides/Gradescope for Due Date)
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               
                 
 
-  <h1>Basics</h1>
+<h1 id="pcb-design-guidelines">PCB Design Guidelines</h1>
+<p><em>Written by George Troulis</em></p>
+<h2 id="workshop-slides">Workshop Slides</h2>
+<iframe src="https://docs.google.com/presentation/d/1vvlrvJ8wAHZMyEDkiLNV__9mrOlkvEyQ8KUJIGJHEWo/embed" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
+<h2 id="tldr-steps-to-make-a-pcb">TL;DR Steps to make a PCB</h2>
+<h3 id="1-schematic">1. Schematic</h3>
+<ul>
+<li>Place components on schematic</li>
+<li>Wire components (wires and/or net labels)</li>
+<li>Assign footprints to components</li>
+<li>Annotate all components</li>
+<li>Perform Electrical Check</li>
+</ul>
+<h3 id="2-pcb">2. PCB</h3>
+<ul>
+<li>Import components from schematic</li>
+<li>Position components <strong>and</strong> mounting holes</li>
+<li>Draw board cutout</li>
+<li>Add dimensions (on Eco1.User layer)</li>
+<li>Route component tracks</li>
+<li>Place copper fills (GND and/or V+)</li>
+<li>Place SilkScreen labels, name, version, and date</li>
+<li>Perform Design Rule Check</li>
+</ul>
+<h3 id="3-ordering-pcb">3. Ordering PCB</h3>
+<ul>
+<li>Export Gerber files + Drill Files, and zip them all</li>
+<li>Find manufacturer (JLCPCB or OSHPark are common)</li>
+<li>Upload zipped gerbers</li>
+<li>Tweak settings (change soldermask color, lead-free finish etc)</li>
+<li>Ensure rendered PCB looks ok</li>
+<li>Order it and wait!</li>
+</ul>
+<h2 id="kicad-shortcuts">KiCad Shortcuts</h2>
+<h3 id="schematic-editor">Schematic Editor</h3>
+<table>
+<thead>
+<tr>
+<th align="center">Key Combo</th>
+<th align="left">Performed Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">A</td>
+<td align="left">Place Component</td>
+</tr>
+<tr>
+<td align="center">E</td>
+<td align="left">Edit Component Properties</td>
+</tr>
+<tr>
+<td align="center">W</td>
+<td align="left">Place Wire</td>
+</tr>
+<tr>
+<td align="center">R</td>
+<td align="left">Rotate Component</td>
+</tr>
+<tr>
+<td align="center">L</td>
+<td align="left">Net Label</td>
+</tr>
+</tbody>
+</table>
+<h3 id="pcb-editor">PCB Editor</h3>
+<table>
+<thead>
+<tr>
+<th align="center">Key Combo</th>
+<th align="left">Performed Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">X</td>
+<td align="left">Place Track</td>
+</tr>
+<tr>
+<td align="center">D</td>
+<td align="left">Move Track</td>
+</tr>
+<tr>
+<td align="center">U</td>
+<td align="left">Select Entire Track</td>
+</tr>
+<tr>
+<td align="center">R</td>
+<td align="left">Rotate Component</td>
+</tr>
+<tr>
+<td align="center">V</td>
+<td align="left">Toggle Top/Bottom layer</td>
+</tr>
+<tr>
+<td align="center">B</td>
+<td align="left">Fill all Pours</td>
+</tr>
+<tr>
+<td align="center">Ctrl+B</td>
+<td align="left">Unfill all Pours</td>
+</tr>
+</tbody>
+</table>
+<h2 id="common-kicad-components">Common KiCad Components</h2>
+<h3 id="schematic-components">Schematic Components</h3>
+<table>
+<thead>
+<tr>
+<th align="center">KiCad Name</th>
+<th align="left">Component</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">R</td>
+<td align="left">Resistor</td>
+</tr>
+<tr>
+<td align="center">C</td>
+<td align="left">Capacitor</td>
+</tr>
+<tr>
+<td align="center">LED</td>
+<td align="left">LED</td>
+</tr>
+<tr>
+<td align="center">SW_Push</td>
+<td align="left">PushButton</td>
+</tr>
+<tr>
+<td align="center">Conn_01x??</td>
+<td align="left">Pin Header (?? can be any number)</td>
+</tr>
+</tbody>
+</table>
+<!--
+### PCB Footprints
 
+ | Component      | Footprints |
+ | :---:          | :---:            |
+ |  Resistor      | Resistor         |
+ |  C             | Capacitor        |
+ |  LED           | LED              |
+ |  SW_Push       | PushButton       |
+-->
+
+<h2 id="helpful-tips">Helpful Tips</h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These are just guidelines, not required rules. Still, it is generally good practice to follow these</p>
+</div>
+<h3 id="1-make-traces-as-thick-as-possible">1. Make Traces As Thick As Possible</h3>
+<h3 id="2-use-a-gnd-or-v-copper-pour">2. Use a GND or V+ Copper Pour</h3>
+<h3 id="3-add-plenty-of-silkscreen">3. Add Plenty Of Silkscreen</h3>
+<p>Silcscreen is like notes on your PCB. Some useful things to include are:</p>
+<ol>
+<li>Label Pins and Connectors; If you have Serial or I2C, label which pin is which</li>
+<li>Add your name, date, and PCB version! You may make a second version of your PCB someday, who knows</li>
+<li>Add a Logo perhaps. Not necessary, but always fun to do</li>
+</ol>
+<h2 id="homework-check-slidesgradescope-for-due-date">Homework (Check Slides/Gradescope for Due Date)</h2>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p><strong>Flavor Text:</strong> Everytime you need to use an LED with an Arduino,
+you have to connect it with a resistor, and the breadboard  circuit
+can get messy. Would be nice to just 'plug in an LED to a breadboard' and
+have it work with no other components.</p>
+<p><strong>Assignment:</strong> Design a small PCB that has the following components:</p>
+<ul>
+<li>LED</li>
+<li>Resistor</li>
+<li>01x02 Pin Header</li>
+</ul>
+<p><strong>Deliverables:</strong></p>
+<ul>
+<li>Screenshot of Schematic</li>
+<li>Screenshot of PCB</li>
+</ul>
+<p><strong>Submission:</strong> Submit this on Gradescope</p>
+<p><strong>Note:</strong> Yes this is a very simple PCB. But it should be enough to give
+you some confidence in using a PCB design tool. Sometimes, very simple PCBs
+can be very useful.</p>
+</div>
 
               
             </article>
@@ -545,6 +1050,41 @@
       </main>
       
         <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../3dprint/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 3D Printing" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              3D Printing
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../pythoninstall/" class="md-footer__link md-footer__link--next" aria-label="Next: Installation and Introduction" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Installation and Introduction
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
