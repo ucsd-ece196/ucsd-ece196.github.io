@@ -7,6 +7,7 @@ nav:
     - Rapid Prototyping:
       - Laser Cutting: lasercut.md
       - 3D Printing: 3dprint.md
+    - PCB Design: pcb.md
     - Python: 
       - Installation and Introduction: pythoninstall.md
       - Syntax Basics: python.md
