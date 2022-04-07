@@ -1,7 +1,7 @@
 import serial
 import time
 
-arduino = serial.Serial(port='COM4', baudrate=9600, timeout=0.1)
+arduino = serial.Serial(port='/dev/ttyUSB1', baudrate=9600, timeout=0.1)
 
 while True:
     tx_data = input("Enter something: ") # Taking input from user

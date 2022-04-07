@@ -82,7 +82,7 @@ Bytes are really just 8-bit binary numbers, or 256 combinations of 1's and 0's, 
 
 To represent useful symbols like characters, some kind of encoding is needed. An encoding scheme maps these 0-255 binary values into symbols.
 
-The most universal encoding scheme for bytes is [**ASCII**](https://www.ascii-code.com/). ASCII specifies which byte values correspond to a-z and A-Z letters, 0-9 digits, common punctuations marks, and some other features.
+The most universal encoding scheme for bytes is [**ASCII**](https://www.ascii-code.com/). ASCII specifies which byte values correspond to a-z letters, A-Z letters, 0-9 digits, common punctuations marks, and some other features.
 
 A reference for the ASCII table can be [**found here**](https://www.ascii-code.com/).
 
@@ -116,6 +116,10 @@ Usually they are based on one of these common chipsets. Some might require drive
     * If if doesn't work, install [Drivers](http://www.prolific.com.tw/US/ShowProduct.aspx?p_id=225&pcid=41)
 * CP2102 Series
     * If if doesn't work, install [Drivers](https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers) 
+
+|![image](img/serial_usb_ftdi.jpg) | ![image](img/serial_usb_arduino_uno.jpg) |
+|:--------------:|:-----------:|
+| FTDI module with micro USB connector | Arduino Uno has bulit-in adapter with USB B-type connector |
 
 ## Checking device connection
 
@@ -237,6 +241,8 @@ This example should read the input, and turn on or off the Arduino bulit-in LED 
 
 `a` and `x` are picked arbitrarily, you can replace them with whatever symbols you want and it should still work.
 
+<iframe width="1520" height="545" src="https://www.youtube.com/embed/unkKMxFdNXk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ### Decoding numbers
 
 Previously we learned about ASCII encoding. When we type characters into the terminal we are actually sending ASCII encoded characters. 
@@ -276,6 +282,7 @@ void loop() {
   }
 }
 ```
+<iframe width="1520" height="545" src="https://www.youtube.com/embed/XtCHegxXmVM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 !!! note
     This example [blinks the LED without using `delay()`](https://www.arduino.cc/en/Tutorial/BuiltInExamples/BlinkWithoutDelay). While not strictly necessary in this case, it is generally better practice to, especially if we end up handling multiple tasks at once, since `delay()` pauses the Arduino from doing anything. [More explanation can be found here](https://www.gammon.com.au/blink). 
@@ -310,14 +317,15 @@ while True:
     print(rx_data) # printing the value
 ```
 
+<iframe width="1520" height="545" src="https://www.youtube.com/embed/PDQUIaUJ43E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ### Button Press
 
 To do more interesting things, we can wire a button up to pin 6 on the Arduino, read the button presses, and send something over serial when the button is pressed.
 
+![arduino_schematic_button_bb.png](files/arduino_schematic_button_bb.png)
+
 This following Arduino sketch will read button presses, debounce them, and send a character `x` over serial.
-
-Note in this example we are using a timer and some extra logic to debounce the button, which is outside the scope of the guide. [See this page](http://www.gammon.com.au/switches) to learn more about debouncing.
-
 ```
 // constants won't change. They're used here to set pin numbers:
 const int buttonPin = 6;    // the number of the pushbutton pin
@@ -356,6 +364,10 @@ void loop() {
 }
 ```
 
+!!! note
+    In this example we are using a timer and some extra logic to debounce the button, which is outside the scope of the guide. [See this page](http://www.gammon.com.au/switches) to learn more about debouncing.
+
+
 Then, this Python script here will read the incoming `x` when the button is pressed and display some feedback in the terminal.
 
 ```
@@ -373,6 +385,8 @@ while True:
             print('Button was pressed !')
     time.sleep(0.01) # slight delay to not hog cpu
 ```
+
+<iframe width="1520" height="545" src="https://www.youtube.com/embed/O8KcP0TUVOM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### Simulate Keyboard
 
@@ -402,6 +416,8 @@ while True:
             pyautogui.write('Hello world!')
     time.sleep(0.01)
 ```
+
+<iframe width="1520" height="545" src="https://www.youtube.com/embed/wyVYlUf7qn8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Wireless serial
 
