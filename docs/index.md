@@ -18,9 +18,9 @@ Recommended for additional tutorial items:
 ## Getting Help
 If you are an ECE196 student and have question please post on Piazza:
 
-[:fontawesome-solid-external-link-square-alt: Piazza WI22](https://piazza.com/class/ky0tx9squic7ha)
+[:fontawesome-solid-external-link-square-alt: Piazza SP22](https://piazza.com/class/l1fc2upb52j1f9)
 
-## TA Staff
+<!-- ## TA Staff
 ### Curtis Lee
 [:fontawesome-solid-external-link-square-alt: Office Hours](https://calendly.com/crl029/ece-196-office-hour)
 [:fontawesome-solid-envelope: Email](mailto: crl029@ucsd.edu)
@@ -34,7 +34,7 @@ If you are an ECE196 student and have question please post on Piazza:
 ### George Troulis
 [:fontawesome-solid-external-link-square-alt: Office Hours](https://calendly.com/gtroulis/ece196-office-hours)
 [:fontawesome-solid-envelope: Email](mailto: crl029@ucsd.edu)
-[:fontawesome-brands-linkedin: LinkedIn](gtroulis@ucsd.edu)
+[:fontawesome-brands-linkedin: LinkedIn](gtroulis@ucsd.edu) -->
 
 ## Q&A
 * How did you make this website?
