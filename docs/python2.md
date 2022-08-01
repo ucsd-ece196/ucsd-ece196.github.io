@@ -27,7 +27,7 @@ Python has **zero-indexed lists**, which means the indexing starts from 0 like a
 print(my_list[0])
 ```
 
-You can edit elements the same way, with list indexing. For example, if you wanted the first element of the previous `my_list` variable to be 0, you can simply do the following:
+You can edit elements the same way, with [list indexing](https://www.scaler.com/topics/python-list-index-method/). For example, if you wanted the first element of the previous `my_list` variable to be 0, you can simply do the following:
 
 ```python
 # Using previous my_list variable
